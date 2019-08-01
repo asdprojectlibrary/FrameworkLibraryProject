@@ -1,0 +1,15 @@
+#top-container{
+     -fx-background-color: #fbffd1;
+}
+
+.label {
+   -fx-text-fill: #000099;
+}
+
+#checkout-window-main-content {
+	-fx-background-color: #fff;
+}
+
+#checkout-form {
+	-fx-background-color: #f00;
+}

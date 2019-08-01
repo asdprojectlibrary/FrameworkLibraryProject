@@ -1,0 +1,48 @@
+#top-container{
+     -fx-background-color: #fbffd1;
+}
+
+.label {
+   -fx-text-fill: #000099;
+}
+
+#pane {
+    -fx-border-color: #dfdfdf;
+}
+
+#hBoxMemberSearch {
+    -fx-border-color: #9f9f9f;
+}
+
+#ErrorNoRecord{
+-fx-font-size: 15px;
+-fx-font-family: "Arial Black";
+-fx-fill: #990000;
+}
+#title{
+-fx-font-size: 30px;
+-fx-font-family: "Arial Black";
+-fx-fill: #818181;
+-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+#paneTitle{
+     -fx-background-color: #dfdfdf;
+}
+
+#paneBotton{
+     
+     -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+.button {
+-fx-text-fill: white;
+-fx-font-family: "Arial Narrow";
+-fx-font-weight: bold;
+-fx-background-color: linear-gradient(#0c0099, #2A5058);
+-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.button:hover{
+-fx-background-color: linear-gradient(#0c0099, #61a2b1);
+}
