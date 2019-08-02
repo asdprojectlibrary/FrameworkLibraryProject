@@ -1,11 +1,11 @@
-# Simple Library Management Desktop app for Group 6
+# Library Framework project for ASD course
 
-This repository holds the source code for group 6.
+This repository holds the source code the groupe.
 
 ## Team Members
 
 1. Emmanuel Cadet (ecades@mum.edu)
 
-2. Romuald Pogo (rkamou@mum.edu)
+2. Musiliu Adeniyi Bolaji (mabolaji@mum.edu)
 
-3. Anthony Anyanwu (acanyanwu@mum.edu) 
+3. Aaron Gezai (agezai@mum.edu) 
