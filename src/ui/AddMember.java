@@ -23,7 +23,7 @@ public class AddMember  extends BaseWindow implements Initializable {
 				//BorderPane root = new BorderPane();
 				Parent root = FXMLLoader.load(Paths.get(fxmlFolder, "AddMember.fxml").toUri().toURL());//FXMLLoader.load(getClass().getResource("AddMember.fxml"));
 				//Scene scene = new Scene(root,569,465);
-				root.getStylesheets().add(getClass().getResource("addMember.css").toExternalForm());
+				root.getStylesheets().add(Paths.get(fxmlFolder, "addMember.css").toUri().toString());
 
 				
 				//scene.getStylesheets().add(getClass().getResource("/ressources/fxml/library.css").toExternalForm());

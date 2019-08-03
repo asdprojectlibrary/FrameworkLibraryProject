@@ -3,10 +3,10 @@
 }
 
 .label {
-   -fx-text-fill: #000099;
+    -fx-text-fill: #000099;
 }
 
-#pane {
+#idPaneAddress {
     -fx-border-color: #dfdfdf;
 }
 
@@ -19,12 +19,18 @@
 -fx-font-family: "Arial Black";
 -fx-fill: #990000;
 }
-#title{
--fx-font-size: 30px;
--fx-font-family: "Arial Black";
--fx-fill: #818181;
--fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+
+#labelMenu{
+    -fx-font-size: 30px;
+    -fx-font-family: "Arial Black";
+    -fx-fill: #818181;
+    -fx-text-fill: #818181;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
 }
+
+
+
+
 
 #paneTitle{
      -fx-background-color: #dfdfdf;
