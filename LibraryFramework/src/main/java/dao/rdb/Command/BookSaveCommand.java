@@ -1,11 +1,8 @@
-package Command;
+package DataAccessAdapter.backup;
 
-import JDBCFacade.JDBCManager;
-import business.Author;
-import business.Book;
-import business.BookCopy;
 
-import java.util.List;
+import dao.rdb.JDBCFacade.JDBCManager;
+import model.*;
 
 public class BookSaveCommand implements Command {
     JDBCManager jdbcManager=JDBCManager.getInstance();
@@ -34,7 +31,7 @@ public class BookSaveCommand implements Command {
                 +"'"+1+"'"+")";
 
         Integer copyId=jdbcManager.insertData(query);
-        bookCopy.setId(copyId);
+        bookCopy.setId(copyId.toString());
         if(copyId==0)
             return false;
         else
@@ -60,7 +57,7 @@ public class BookSaveCommand implements Command {
                 +"'"+book.getMaxCheckoutLength()+"'"+")";
 
         Integer bookId=jdbcManager.insertData(query);
-        book.setId(bookId);
+        book.setId(bookId.toString());
         if(bookId==0) {
             return false;
         }
