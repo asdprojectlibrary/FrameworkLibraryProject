@@ -128,7 +128,7 @@ public class Adapter implements TargetInterface {
     }*/
 
     @Override
-    public Member searchLibraryMemberById(Integer memberId) {
+    public Member searchLibraryMemberById(String memberId) {
         String query = "select * from libraryMember as li,person as p,address as ad " +
                 " where li.idPerson=p.idPerson and p.idAddress=ad.idAddress and memberId=" + "'" + memberId + "'";
 

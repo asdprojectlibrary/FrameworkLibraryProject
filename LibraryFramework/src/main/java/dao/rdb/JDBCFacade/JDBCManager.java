@@ -1,5 +1,8 @@
 package dao.rdb.JDBCFacade;
 
+import config.LibraryManager;
+import config.MysqlConfig;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,8 +39,15 @@ public class JDBCManager {
 
         // ********** Opening Database connection **********
         try{
-            String DBurl = "jdbc:mysql://localhost:3306/library";
-            conn = DriverManager.getConnection(DBurl, "root", "root");
+
+            MysqlConfig mysqlConfig = (MysqlConfig)LibraryManager.getInstance().getConfig();
+
+            String DBurl =mysqlConfig.getDbUrl();// "jdbc:mysql://localhost:3306/library";
+            conn = DriverManager.getConnection(DBurl,
+                    mysqlConfig.getUsername(),// "root",
+                    mysqlConfig.getPassword() //"root"
+
+            );
         }catch (SQLException ex){System.out.println("Driver : "+ex.getMessage());}
 
         System.out.println(conn);

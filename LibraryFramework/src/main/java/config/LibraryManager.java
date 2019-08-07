@@ -4,7 +4,8 @@ import dao.TestData;
 import lombok.Data;
 
 @Data
-public class LibraryManager {
+final public class LibraryManager {
+
     private IConfig config;
 
     private static LibraryManager libraryManager;

@@ -52,13 +52,15 @@ public class Main extends BaseWindow implements Initializable {
 
             LibraryManager libraryManager = LibraryManager.getInstance();
 
-            FlatFileConfig config = new FlatFileConfig();
+            /*FlatFileConfig config = new FlatFileConfig();
 
             config.setDir(Paths.get(
                     System.getProperties().getProperty("user.dir"),
                     "src", "resources"
-            ).toString());
-            
+            ).toString());*/
+
+            MysqlConfig config = new MysqlConfig();
+
 
             libraryManager.init(config);
 

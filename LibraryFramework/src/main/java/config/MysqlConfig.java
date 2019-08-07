@@ -7,8 +7,11 @@ import java.nio.file.Paths;
 @Data
 public class MysqlConfig implements  IConfig {
 
-    private String con;
+    private String dbUrl;
+    private  String password;
+    private  String username;
 
     public MysqlConfig(){
+
     }
 }

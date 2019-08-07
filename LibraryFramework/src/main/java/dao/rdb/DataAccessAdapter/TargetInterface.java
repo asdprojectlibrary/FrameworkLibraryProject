@@ -23,9 +23,7 @@ public interface TargetInterface {
 
     public boolean updateCheckoutRecord(CheckoutRecord chkOutRecord);
 
-    //public boolean updateUser(User user);
-
-    public Member searchLibraryMemberById(Integer memberId);
+    public Member searchLibraryMemberById(String memberId);
 
     public List<Member> searchAllLibraryMember();
 
