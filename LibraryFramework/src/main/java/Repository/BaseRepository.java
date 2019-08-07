@@ -6,7 +6,6 @@ import config.LibraryManager;
 import dao.IDataAccess;
 import dao.flatfile.FlatFileDataAccess;
 import dao.rdb.ModelDataAccess.DataAccessFactory;
-import dao.rdb.ModelDataAccess.RDBDataAccess;
 import model.BaseModel;
 
 final public class BaseRepository<T extends BaseModel> {
@@ -14,6 +13,7 @@ final public class BaseRepository<T extends BaseModel> {
     IDataAccess<T> dataAccess;
 
     public BaseRepository(Class<T> type) {
+
         IConfig config = LibraryManager.getInstance().getConfig();
 
         if (config != null) {
@@ -24,6 +24,7 @@ final public class BaseRepository<T extends BaseModel> {
                 this.dataAccess = DataAccessFactory.getInstance().getDataAccess(type);
             }
         }
+
     }
 
     public IDataAccess<T> getDataAccess() {

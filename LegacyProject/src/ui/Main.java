@@ -52,14 +52,12 @@ public class Main extends BaseWindow implements Initializable {
 
             LibraryManager libraryManager = LibraryManager.getInstance();
 
-            /*FlatFileConfig config = new FlatFileConfig();
+            FlatFileConfig config = new FlatFileConfig();
 
             config.setDir(Paths.get(
                     System.getProperties().getProperty("user.dir"),
                     "src", "resources"
-            ).toString());*/
-
-            MysqlConfig config = new MysqlConfig();
+            ).toString());
 
 
             libraryManager.init(config);
@@ -101,6 +99,7 @@ public class Main extends BaseWindow implements Initializable {
 
     @FXML
     private void closeAction(MouseEvent event) {
+
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Confirmation ");
         alert.setHeaderText("You are about to close");
