@@ -1,4 +1,4 @@
-package dao.rdb.Command;
+package Command;
 
 public interface Command {
     public boolean execute();

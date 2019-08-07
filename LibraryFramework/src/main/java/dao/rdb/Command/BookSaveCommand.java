@@ -1,8 +1,11 @@
-package dao.rdb.Command;
+package Command;
 
+import JDBCFacade.JDBCManager;
+import business.Author;
+import business.Book;
+import business.BookCopy;
 
-import dao.rdb.JDBCFacade.JDBCManager;
-import model.*;
+import java.util.List;
 
 public class BookSaveCommand implements Command {
     JDBCManager jdbcManager=JDBCManager.getInstance();
@@ -31,7 +34,7 @@ public class BookSaveCommand implements Command {
                 +"'"+1+"'"+")";
 
         Integer copyId=jdbcManager.insertData(query);
-        bookCopy.setId(copyId.toString());
+        bookCopy.setId(copyId);
         if(copyId==0)
             return false;
         else
@@ -57,7 +60,7 @@ public class BookSaveCommand implements Command {
                 +"'"+book.getMaxCheckoutLength()+"'"+")";
 
         Integer bookId=jdbcManager.insertData(query);
-        book.setId(bookId.toString());
+        book.setId(bookId);
         if(bookId==0) {
             return false;
         }
