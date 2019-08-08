@@ -1,4 +1,4 @@
-package dao.rdb.DataAccessAdapter;
+package dao.rdb.dataaccessadapter;
 
 import model.*;
 

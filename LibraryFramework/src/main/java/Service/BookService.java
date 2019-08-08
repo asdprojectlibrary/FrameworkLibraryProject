@@ -1,7 +1,6 @@
 package Service;
 
-import Repository.BaseRepository;
-import model.Author;
+import repository.BaseRepository;
 import model.Book;
 import model.BookCopy;
 

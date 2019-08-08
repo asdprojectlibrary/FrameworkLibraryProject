@@ -1,11 +1,9 @@
 package dao.rdb.ModelDataAccess;
 
 import dao.IDataAccess;
-import dao.rdb.DataAccessAdapter.Adapter;
-import dao.rdb.DataAccessAdapter.TargetInterface;
-import model.Author;
+import dao.rdb.dataaccessadapter.Adapter;
+import dao.rdb.dataaccessadapter.TargetInterface;
 import model.BaseModel;
-import model.Book;
 
 import java.util.List;
 

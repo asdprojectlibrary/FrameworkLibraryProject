@@ -7,6 +7,7 @@ import java.util.List;
 import Service.AuthorService;
 import Service.BookService;
 import Service.MemberService;
+import Service.UserService;
 import model.*;
 
 
@@ -48,7 +49,15 @@ public class TestData {
             add(new Book("48-56888", "Trigger past due date book", -7, Arrays.asList(allAuthors.get(4))));    
 		}
 	};
-	
+
+	static List<User> allUsers = new ArrayList<User>() {
+		{
+			add(new User("101", "xyz", Auth.LIBRARIAN));
+			add(new User("102", "abc", Auth.ADMIN));
+			add(new User("103", "111", Auth.BOTH));
+		}
+	};
+
 	public static void main(String[] args) {
 
 		BookService bookService = new BookService();
@@ -85,7 +94,8 @@ public class TestData {
 		MemberService memberService =  new MemberService();
 		memberService.save(members);
 
-
+		UserService userService =  new UserService();
+		userService.save(allUsers);
 
 
 	}

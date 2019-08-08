@@ -13,10 +13,10 @@ final public class LibraryManager {
     private LibraryManager() {
     }
 
-    public void  init(IConfig config){
+    public void init(IConfig config){
         this.config = config;
         //DataLoader.save();
-        //TestData.load();
+        TestData.load();
     }
 
     public static LibraryManager getInstance() {

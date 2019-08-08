@@ -1,4 +1,4 @@
-package Repository;
+package repository;
 
 import config.FlatFileConfig;
 import config.IConfig;
@@ -12,7 +12,7 @@ final public class BaseRepository<T extends BaseModel> {
 
     IDataAccess<T> dataAccess;
 
-    public BaseRepository(Class<T> type) {
+    public BaseRepository(Class<T> type)  {
 
         IConfig config = LibraryManager.getInstance().getConfig();
 
@@ -24,6 +24,7 @@ final public class BaseRepository<T extends BaseModel> {
                 this.dataAccess = DataAccessFactory.getInstance().getDataAccess(type);
             }
         }
+
 
     }
 

@@ -1,8 +1,8 @@
-package dao.rdb.DataAccessAdapter;
+package dao.rdb.dataaccessadapter;
 
-import dao.rdb.Command.BookSaveCommand;
-import dao.rdb.Command.Command;
-import dao.rdb.Command.MemberSaveCommand;
+import dao.rdb.command.BookSaveCommand;
+import dao.rdb.command.Command;
+import dao.rdb.command.MemberSaveCommand;
 import dao.rdb.JDBCFacade.JDBCManager;
 import model.*;
 

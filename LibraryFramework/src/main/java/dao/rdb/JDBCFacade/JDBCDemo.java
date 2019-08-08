@@ -1,10 +1,7 @@
 package dao.rdb.JDBCFacade;
 
-import dao.rdb.DataAccessAdapter.*;
-import model.Author;
+import dao.rdb.dataaccessadapter.*;
 import model.CheckoutEntry;
-
-import java.util.List;
 
 public class JDBCDemo {
 

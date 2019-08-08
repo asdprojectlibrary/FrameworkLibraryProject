@@ -1,6 +1,6 @@
 package Service;
 
-import Repository.BaseRepository;
+import repository.BaseRepository;
 import exception.BookCopyNotAvailable;
 import exception.BookNotFound;
 import exception.LibraryMemberNotFound;
