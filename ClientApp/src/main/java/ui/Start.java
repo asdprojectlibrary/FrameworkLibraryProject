@@ -1,12 +1,9 @@
 package ui;
 
-import java.io.File;
-import java.nio.file.Paths;
-
 import business.SystemController;
 import config.FlatFileConfig;
 import config.LibraryManager;
-import dataaccess.TestData;
+import dataaccess.DataLoaderImpl;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,290 +22,292 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.nio.file.Paths;
+
 public class Start extends Application {
 
-	Start mainApp = this;
+    Start mainApp = this;
 
-	private MenuBar menuBar = new MenuBar();
-	Menu accountMenu = new Menu("My Account");
-	Menu optionsMenu = new Menu("Menu");
-	Label lblAuth = new Label();
-	private Pane root;// = new BorderPane();
+    private MenuBar menuBar = new MenuBar();
+    Menu accountMenu = new Menu("My Account");
+    Menu optionsMenu = new Menu("Menu");
+    Label lblAuth = new Label();
+    private Pane root;// = new BorderPane();
 
-	public static void main(String[] args) {
-		launch(args);
-	}
+    public static void main(String[] args) {
+        launch(args);
+    }
 
-	private static Stage primStage = null;
+    private static Stage primStage = null;
 
-	public static Stage primStage() {
-		return primStage;
-	}
+    public static Stage primStage() {
+        return primStage;
+    }
 
-	public static class Colors {
-		static Color green = Color.web("#034220");
-		static Color red = Color.FIREBRICK;
-	}
+    public static class Colors {
+        static Color green = Color.web("#034220");
+        static Color red = Color.FIREBRICK;
+    }
 
-	@Override
-	public void start(Stage primaryStage) {
+    @Override
+    public void start(Stage primaryStage) {
 
 
-		FlatFileConfig config =  new FlatFileConfig();
+        FlatFileConfig config = new FlatFileConfig();
 
-		config.setDir(Paths.get(
-				System.getProperties().getProperty("user.dir"),
-				"src","main", "resources"
-		).toString());
+        config.setDir(Paths.get(
+                System.getProperties().getProperty("user.dir"),
+                "src", "main", "resources"
+        ).toString());
+		/*
+        MysqlConfig config = new MysqlConfig();
 
-		LibraryManager libraryManager = LibraryManager.getInstance();
-		libraryManager.init(config);
+        config.setDbUrl("");
+        config.setPassword("");
+        config.setUsername("");
+		 */
 
-		File file = new File("AUTHORS");
+        LibraryManager.getInstance().init(config, new DataLoaderImpl());
 
-		if (file.exists() == false) {
-			TestData.main(null);
-		}
+        primStage = primaryStage;
+        primStage.setTitle("The Library System - GROUP 9");
 
-		primStage = primaryStage;
-		primStage.setTitle("The Library System - GROUP 9");
+        primStage.getIcons().add(new Image("/ui/icon.png"));
 
-		primStage.getIcons().add(new Image("/ui/icon.png"));
+        setMenus();
 
-		setMenus();
+        setHomeScreen();
 
-		setHomeScreen();
+        primaryStage.setResizable(false);
+        primaryStage.sizeToScene();
 
-		primaryStage.setResizable(false);
-		primaryStage.sizeToScene();
+        primaryStage.show();
 
-		primaryStage.show();
+    }
 
-	}
+    void setHomeScreen() {
 
-	void setHomeScreen() {
+        VBox topContainer = new VBox();
+        topContainer.setId("top-container");
 
-		VBox topContainer = new VBox();
-		topContainer.setId("top-container");
+        VBox imageHolder = new VBox();
+        Image image = new Image("ui/library.jpg", 600, 400, false, false);
 
-		VBox imageHolder = new VBox();
-		Image image = new Image("ui/library.jpg", 600, 400, false, false);
+        // simply displays in ImageView the image as is
+        ImageView iv = new ImageView();
+        iv.setImage(image);
+        imageHolder.getChildren().add(iv);
+        imageHolder.setAlignment(Pos.CENTER);
 
-		// simply displays in ImageView the image as is
-		ImageView iv = new ImageView();
-		iv.setImage(image);
-		imageHolder.getChildren().add(iv);
-		imageHolder.setAlignment(Pos.CENTER);
+        lblAuth.setFont(new Font(20));
+        topContainer.getChildren().add(lblAuth);
 
-		lblAuth.setFont(new Font(20));
-		topContainer.getChildren().add(lblAuth);
+        topContainer.getChildren().add(imageHolder);
 
-		topContainer.getChildren().add(imageHolder);
+        topContainer.setAlignment(Pos.CENTER);
 
-		topContainer.setAlignment(Pos.CENTER);
+        setScreen(topContainer);
+    }
 
-		setScreen(topContainer);
-	}
+    private void setMenus() {
+        accountMenu.getItems().clear();
+        optionsMenu.getItems().clear();
+        menuBar.getMenus().clear();
 
-	private void setMenus() {
-		accountMenu.getItems().clear();
-		optionsMenu.getItems().clear();
-		menuBar.getMenus().clear();
+        ObservableList<MenuItem> accountMenus = accountMenu.getItems();
+        ObservableList<MenuItem> mainMenus = optionsMenu.getItems();
 
-		ObservableList<MenuItem> accountMenus = accountMenu.getItems();
-		ObservableList<MenuItem> mainMenus = optionsMenu.getItems();
+        if (SystemController.currentAuth != null) {
 
-		if (SystemController.currentAuth != null) {
+            switch (SystemController.currentAuth) {
+                case ADMIN:
+                    mainMenus.addAll(getAddMemberMenu(), getAddBookMenu(), getAddBookCopyMenu(), getMembersMenu(),
+                            getBooksMenu());
+                    lblAuth.setText("Welcome, Administrator. Select an action from the menu.");
+                    break;
+                case LIBRARIAN:
+                    mainMenus.addAll(getCheckoutMenu(), getPrintCheckoutMenu(), getVerifyCheckoutMenu());
+                    lblAuth.setText("Welcome, Librarian. Select an action from the menu.");
 
-			switch (SystemController.currentAuth) {
-			case ADMIN:
-				mainMenus.addAll(getAddMemberMenu(), getAddBookMenu(), getAddBookCopyMenu(), getMembersMenu(),
-						getBooksMenu());
-				lblAuth.setText("Welcome, Administrator. Select an action from the menu.");
-				break;
-			case LIBRARIAN:
-				mainMenus.addAll(getCheckoutMenu(), getPrintCheckoutMenu(), getVerifyCheckoutMenu());
-				lblAuth.setText("Welcome, Librarian. Select an action from the menu.");
+                    break;
+                case BOTH:
+                    mainMenus.addAll(getAddMemberMenu(), getAddBookMenu(), getAddBookCopyMenu());
+                    mainMenus.addAll(getCheckoutMenu(), getPrintCheckoutMenu(), getVerifyCheckoutMenu(), getMembersMenu(),
+                            getBooksMenu());
+                    lblAuth.setText("Welcome, Super User. Select an action from the menu.");
+                    break;
+            }
+            accountMenus.add(getLogoutMenu());
 
-				break;
-			case BOTH:
-				mainMenus.addAll(getAddMemberMenu(), getAddBookMenu(), getAddBookCopyMenu());
-				mainMenus.addAll(getCheckoutMenu(), getPrintCheckoutMenu(), getVerifyCheckoutMenu(), getMembersMenu(),
-						getBooksMenu());
-				lblAuth.setText("Welcome, Super User. Select an action from the menu.");
-				break;
-			}
-			accountMenus.add(getLogoutMenu());
+            if (!menuBar.getMenus().contains(accountMenu)) {
+                menuBar.getMenus().add(accountMenu);
+            }
+            if (!menuBar.getMenus().contains(optionsMenu)) {
+                menuBar.getMenus().add(optionsMenu);
+            }
 
-			if (!menuBar.getMenus().contains(accountMenu)) {
-				menuBar.getMenus().add(accountMenu);
-			}
-			if (!menuBar.getMenus().contains(optionsMenu)) {
-				menuBar.getMenus().add(optionsMenu);
-			}
+        } else {
+            if (!menuBar.getMenus().contains(accountMenu)) {
+                accountMenus.add(getLoginMenu());
+                menuBar.getMenus().add(accountMenu);
+            } else {
+                accountMenus.add(getLoginMenu());
+            }
 
-		} else {
-			if (!menuBar.getMenus().contains(accountMenu)) {
-				accountMenus.add(getLoginMenu());
-				menuBar.getMenus().add(accountMenu);
-			} else {
-				accountMenus.add(getLoginMenu());
-			}
+            lblAuth.setText("Please Login To Your Account To Proceed");
+        }
 
-			lblAuth.setText("Please Login To Your Account To Proceed");
-		}
+    }
 
-	}
+    private MenuItem getMembersMenu() {
 
-	private MenuItem getMembersMenu() {
+        MenuItem menu = new MenuItem("View All Members");
 
-		MenuItem menu = new MenuItem("View All Members");
+        menu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                new AllMembersWindow(mainApp).setScreen();
+            }
+        });
+        return menu;
+    }
 
-		menu.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				new AllMembersWindow(mainApp).setScreen();
-			}
-		});
-		return menu;
-	}
+    private MenuItem getBooksMenu() {
 
-	private MenuItem getBooksMenu() {
+        MenuItem menu = new MenuItem("View All Books");
 
-		MenuItem menu = new MenuItem("View All Books");
+        menu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                new AllBooksWindow(mainApp).setScreen();
+            }
+        });
+        return menu;
 
-		menu.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				new AllBooksWindow(mainApp).setScreen();
-			}
-		});
-		return menu;
+    }
 
-	}
+    private MenuItem getLoginMenu() {
 
-	private MenuItem getLoginMenu() {
+        MenuItem login = new MenuItem("Login");
 
-		MenuItem login = new MenuItem("Login");
+        login.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
 
-		login.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
+                new LoginWindow(mainApp).setScreen();
+            }
+        });
+        return login;
+    }
 
-				new LoginWindow(mainApp).setScreen();
-			}
-		});
-		return login;
-	}
+    private MenuItem getLogoutMenu() {
 
-	private MenuItem getLogoutMenu() {
+        MenuItem menu = new MenuItem("Logout");
 
-		MenuItem menu = new MenuItem("Logout");
+        menu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                SystemController.currentAuth = null;
+                setHomeScreen();
+            }
+        });
+        return menu;
+    }
 
-		menu.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				SystemController.currentAuth = null;
-				setHomeScreen();
-			}
-		});
-		return menu;
-	}
+    public void setScreen(Pane pane) {
 
-	public void setScreen(Pane pane) {
+        root = new VBox();
 
-		root = new VBox();
+        root.getChildren().add(menuBar);
 
-		root.getChildren().add(menuBar);
+        root.getChildren().add(pane);
 
-		root.getChildren().add(pane);
+        Scene scene = new Scene(root, 600, 500);
 
-		Scene scene = new Scene(root, 600, 500);
+        setMenus();
 
-		setMenus();
+        // scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
+        primStage.setScene(scene);
 
-		// scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
-		primStage.setScene(scene);
+    }
 
-	}
+    private MenuItem getAddMemberMenu() {
 
-	private MenuItem getAddMemberMenu() {
+        MenuItem menu = new MenuItem("Add Member");
 
-		MenuItem menu = new MenuItem("Add Member");
+        menu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                new AddMember(mainApp).setScreen();
+            }
+        });
+        return menu;
+    }
 
-		menu.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				new AddMember(mainApp).setScreen();
-			}
-		});
-		return menu;
-	}
+    private MenuItem getAddBookMenu() {
 
-	private MenuItem getAddBookMenu() {
+        MenuItem menu = new MenuItem("Add New Book");
 
-		MenuItem menu = new MenuItem("Add New Book");
+        menu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                new AddBook(mainApp).setScreen();
+            }
+        });
+        return menu;
+    }
 
-		menu.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				new AddBook(mainApp).setScreen();
-			}
-		});
-		return menu;
-	}
+    private MenuItem getAddBookCopyMenu() {
 
-	private MenuItem getAddBookCopyMenu() {
+        MenuItem menu = new MenuItem("Add A Copy of An Existing Book");
 
-		MenuItem menu = new MenuItem("Add A Copy of An Existing Book");
+        menu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                new AddBookCopy(mainApp).setScreen();
+            }
+        });
+        return menu;
+    }
 
-		menu.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				new AddBookCopy(mainApp).setScreen();
-			}
-		});
-		return menu;
-	}
+    private MenuItem getCheckoutMenu() {
 
-	private MenuItem getCheckoutMenu() {
+        MenuItem menu = new MenuItem("Checkout A Book");
 
-		MenuItem menu = new MenuItem("Checkout A Book");
+        menu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                new CheckoutWindow(mainApp).setScreen();
+            }
+        });
+        return menu;
+    }
 
-		menu.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				new CheckoutWindow(mainApp).setScreen();
-			}
-		});
-		return menu;
-	}
+    private MenuItem getPrintCheckoutMenu() {
 
-	private MenuItem getPrintCheckoutMenu() {
+        MenuItem menu = new MenuItem("Print Checkout Record");
 
-		MenuItem menu = new MenuItem("Print Checkout Record");
+        menu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                new PrintCheckoutWindow(mainApp).setScreen();
 
-		menu.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				new PrintCheckoutWindow(mainApp).setScreen();
+            }
+        });
+        return menu;
+    }
 
-			}
-		});
-		return menu;
-	}
+    private MenuItem getVerifyCheckoutMenu() {
 
-	private MenuItem getVerifyCheckoutMenu() {
+        MenuItem menu = new MenuItem("Determine if a Book is Overdue");
 
-		MenuItem menu = new MenuItem("Determine if a Book is Overdue");
-
-		menu.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				new VerifyOverdue(mainApp).setScreen();
-			}
-		});
-		return menu;
-	}
+        menu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                new VerifyOverdue(mainApp).setScreen();
+            }
+        });
+        return menu;
+    }
 
 }

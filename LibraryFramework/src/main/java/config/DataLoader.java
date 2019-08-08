@@ -1,18 +1,27 @@
 package config;
 
-import model.Member;
-
-import java.sql.Savepoint;
-import java.util.List;
-
 public abstract class DataLoader {
-    protected  final void Savepoint(){
-        loadmembers();
-        loadmembers1();
-        loadmembers2();
+
+    protected final void load() {
+
+        loadBooks();
+        loadCopies();
+        loadAuthors();
+        loadMembers();
+        loadUsers();
+
     }
 
-    abstract void loadmembers();
-    abstract void loadmembers1();
-    abstract void loadmembers2();
+
+    public  abstract void loadBooks();
+
+    public  abstract void loadCopies();
+
+    public  abstract void loadAuthors();
+
+    public  abstract void loadMembers();
+
+    public  abstract void loadUsers();
+
 }
+

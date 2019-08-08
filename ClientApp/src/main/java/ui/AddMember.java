@@ -1,8 +1,6 @@
 package ui;
 
-import business.Address;
 import business.ControllerInterface;
-import business.LibraryMember;
 import business.SystemController;
 import business.exceptions.AddMemberException;
 import business.exceptions.InvalidFieldException;
@@ -16,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import model.*;
 
 public class AddMember extends BaseWindow {
 
@@ -94,10 +93,11 @@ public class AddMember extends BaseWindow {
 					if (entriesAreValid(memberID, firstName, lastName, street, city, state, zipcode, phonenumber)) {
 
 						Address memberAddress = new Address(street, city, state, zipcode);
-						LibraryMember newMember = new LibraryMember(memberID, firstName, lastName, phonenumber,
+						Member newMember = new Member(memberID, firstName, lastName, phonenumber,
 								memberAddress);
+
 						ControllerInterface sc = new SystemController();
-						sc.saveNewMember(newMember);
+						sc.saveMember(newMember);
 
 						displayMessage(Alert.AlertType.INFORMATION, "Added Member", "Member Was Added Successfully");
 

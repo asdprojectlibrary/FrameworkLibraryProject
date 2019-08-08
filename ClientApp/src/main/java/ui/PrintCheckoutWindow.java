@@ -4,10 +4,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-import business.CheckoutEntry;
-import business.CheckoutRecord;
 import business.ControllerInterface;
-import business.LibraryMember;
 import business.SystemController;
 import business.exceptions.CheckoutException;
 import business.exceptions.InvalidFieldException;
@@ -30,6 +27,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import javafx.util.Pair;
+import model.*;
 
 public class PrintCheckoutWindow extends BaseWindow {
 
@@ -103,12 +101,11 @@ public class PrintCheckoutWindow extends BaseWindow {
 						tableView.setItems(null);
 						libraryMemberText.setText("");
 						ControllerInterface c = new SystemController();
-						LibraryMember libraryMember = c.getCheckoutRecord(id);
-						CheckoutRecord checkoutRecord = libraryMember.getCheckoutRecord();
+						Member libraryMember = c.getMember(id);
 
-						List<CheckoutEntry> checkoutEntries = checkoutRecord.getCheckoutEntries();
+						List<CheckoutEntry> checkoutEntries = c.getCheckoutEntries(id);
 
-						libraryMemberText.setText(libraryMember.getName());
+						libraryMemberText.setText(libraryMember.getFirstName()+" "+libraryMember.getLastName() );
 						if (checkoutEntries.size() == 0) {
 							libraryMemberText.setText(libraryMemberText.getText() + " - NO ENTRIES FOUND");
 						}
@@ -121,9 +118,7 @@ public class PrintCheckoutWindow extends BaseWindow {
 						throw new InvalidFieldException("You have an error in your input");
 					}
 
-				} catch (InvalidFieldException emExc) {
-					displayMessage(Alert.AlertType.ERROR, "Please fill all fields correctly!", emExc.getMessage());
-				} catch (CheckoutException ex) {
+				} catch (Exception ex) {
 
 					displayMessage(Alert.AlertType.ERROR, "Checkout Record Error", ex.getMessage());
 

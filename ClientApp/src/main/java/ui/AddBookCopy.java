@@ -1,9 +1,6 @@
 package ui;
 
 
-import java.util.List;
-
-import business.Book;
 import business.ControllerInterface;
 import business.SystemController;
 import business.exceptions.InvalidFieldException;
@@ -17,92 +14,89 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import model.Book;
+
+import java.util.List;
 
 public class AddBookCopy extends BaseWindow {
 
-	public AddBookCopy(Start mainApp) {
-		super(mainApp);
-	}
+    public AddBookCopy(Start mainApp) {
+        super(mainApp);
+    }
 
-	private boolean entriesAreValid(String isbn, String qty) {
-		if (isbn.isEmpty() || qty.isEmpty()) {
-			return false;
-		}
-		return true;
-	}
+    private boolean entriesAreValid(String isbn, String qty) {
+        if (isbn.isEmpty() || qty.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
 
-	private Book bookExistsWithISBN(String isbn, List<Book> listOfBooks) {
-		for (Book book : listOfBooks) {
-			if (book.getIsbn().equals(isbn)) {
-				return book;
-			}
-		}
-		return null;
-	}
+    private Book bookExistsWithISBN(String isbn, List<Book> listOfBooks) {
+        for (Book book : listOfBooks) {
+            if (book.getIsbn().equals(isbn)) {
+                return book;
+            }
+        }
+        return null;
+    }
 
-	protected Pane getScreen() {
+    protected Pane getScreen() {
 
-		GridPane grid = new GridPane();
-		grid.setId("top-container");
-		grid.setAlignment(Pos.CENTER);
-		grid.setHgap(10);
-		grid.setVgap(10);
-		grid.setPadding(new Insets(25, 25, 25, 25));
+        GridPane grid = new GridPane();
+        grid.setId("top-container");
+        grid.setAlignment(Pos.CENTER);
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(25, 25, 25, 25));
 
-		grid.add(new Label("ISBN"), 0, 0);
-		TextField txtISBN = new TextField();
-		grid.add(txtISBN, 1, 0);
+        grid.add(new Label("ISBN"), 0, 0);
+        TextField txtISBN = new TextField();
+        grid.add(txtISBN, 1, 0);
 
-		grid.add(new Label("Quantity"), 0, 1);
-		TextField txtQty = new TextField();
-		grid.add(txtQty, 1, 1);
+        grid.add(new Label("Quantity"), 0, 1);
+        TextField txtQty = new TextField();
+        grid.add(txtQty, 1, 1);
 
-		Button btnSave = new Button("Save");
+        Button btnSave = new Button("Save");
 
-		btnSave.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				try {
-					String isbn = txtISBN.getText().trim();
-					String qtyString = txtQty.getText().trim();
-					if (entriesAreValid(isbn, qtyString)) {
-						int qty = Integer.parseInt(txtQty.getText().trim());
-						
-						if(qty<1) {
-							throw new Exception("Quantity must not less than one");
-						}
-						
-						ControllerInterface sc = new SystemController();
-						List<Book> listOfBooks = sc.allBooks();
-						Book book = bookExistsWithISBN(isbn, listOfBooks);
-						if (book != null) {
-							book.addCopy(qty);
-							sc.updateBook(book);
+        btnSave.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                try {
+                    String isbn = txtISBN.getText().trim();
+                    String qtyString = txtQty.getText().trim();
+                    if (entriesAreValid(isbn, qtyString)) {
+                        int qty = Integer.parseInt(txtQty.getText().trim());
 
-							displayMessage(Alert.AlertType.INFORMATION, "Copy Added", "The Addition was successful");
+                        if (qty < 1) {
+                            throw new Exception("Quantity must not less than one");
+                        }
 
-							new AllBooksWindow(mainApp).setScreen();
+                        ControllerInterface sc = new SystemController();
 
-						} else {
-							throw new Exception("Book Not Found!");
-						}
-					} else {
-						throw new InvalidFieldException("Your inputs have errors");
-					}
+                        sc.addCopies(isbn, qty);
+                        displayMessage(Alert.AlertType.INFORMATION, "Copy Added", "The Addition was successful");
 
-				} catch (InvalidFieldException emExc) {
-					displayMessage(Alert.AlertType.ERROR, "Please fill all fields correctly!", emExc.getMessage());
-				} catch (Exception ex) {
-					displayMessage(Alert.AlertType.ERROR, "Error!!!", ex.getMessage());
-				}
+                        new AllBooksWindow(mainApp).setScreen();
 
-			}
-		});
 
-		grid.add(btnSave, 1, 5);
+                    } else {
+                        throw new InvalidFieldException("Your inputs have errors");
+                    }
 
-		return grid;
+                } catch (InvalidFieldException emExc) {
+                    displayMessage(Alert.AlertType.ERROR, "Please fill all fields correctly!", emExc.getMessage());
+                } catch (Exception ex) {
+                    displayMessage(Alert.AlertType.ERROR, "Error!!!", ex.getMessage());
+                }
 
-	}
+            }
+        });
+
+        grid.add(btnSave, 1, 5);
+
+        return grid;
+
+    }
 
 }

@@ -12,7 +12,7 @@ import model.BaseModel;
 final public class BaseRepository<T extends BaseModel> {
 
     IDataAccess<T> dataAccess;
-    DataAccessFactory dataAccessFactory= ConcreteDataAccessFactory.getInstance();
+
 
     public BaseRepository(Class<T> type)  {
 
@@ -23,6 +23,7 @@ final public class BaseRepository<T extends BaseModel> {
                 this.dataAccess = new FlatFileDataAccess<>(type);
             } else {
                 //Factory method
+                DataAccessFactory dataAccessFactory= ConcreteDataAccessFactory.getInstance();
                 this.dataAccess = dataAccessFactory.getDataAccess(type);
             }
         }

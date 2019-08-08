@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import business.CheckoutEntry;
-import business.CheckoutRecord;
 import business.ControllerInterface;
 import business.SystemController;
 import business.exceptions.CheckoutException;
@@ -28,6 +26,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import javafx.util.Pair;
+import model.CheckoutEntry;
 
 public class CheckoutWindow extends BaseWindow {
 
@@ -108,30 +107,33 @@ public class CheckoutWindow extends BaseWindow {
 			@Override
 			public void handle(ActionEvent e) {
 				try {
-					String userId = idTextField.getText().trim();
+					String memberId = idTextField.getText().trim();
 					String isbn = isbnField.getText().trim();
 
-					if (entriesAreValid(userId, isbn)) {
+					if (entriesAreValid(memberId, isbn)) {
 						ControllerInterface c = new SystemController();
-						CheckoutRecord checkoutRecord = c.checkout(userId, isbn);
+
+						CheckoutEntry checkoutEntry = c.checkout(memberId, isbn);
+
+						System.out.println(checkoutEntry.toString());
+
+						List<CheckoutEntry> checkoutEntries = c.getCheckoutEntries(memberId, isbn);
 
 						displayMessage(Alert.AlertType.INFORMATION, "Checkout", "Checkout successful.");
 						idTextField.clear();
 						isbnField.clear();
 
-						tableView.setItems(FXCollections.observableArrayList(checkoutRecord.getCheckoutEntries()));
+						tableView.setItems(FXCollections.observableArrayList(checkoutEntries));
 
-						for (CheckoutEntry checkoutEntry : checkoutRecord.getCheckoutEntries()) {
-							System.out.println(checkoutEntry);
+						for (CheckoutEntry entry : checkoutEntries) {
+							System.out.println(entry);
 						}
 					} else {
 						throw new InvalidFieldException("Invalid Input Provided!");
 					}
 
-				} catch (CheckoutException ex) {
-					displayMessage(Alert.AlertType.ERROR, "Checkout Error!!!", ex.getMessage());
-				} catch (InvalidFieldException emExc) {
-					displayMessage(Alert.AlertType.ERROR, "Please fill all fields correctly!", emExc.getMessage());
+				} catch (Exception emExc) {
+					displayMessage(Alert.AlertType.ERROR, "Error!!!", emExc.getMessage());
 				}
 
 			}

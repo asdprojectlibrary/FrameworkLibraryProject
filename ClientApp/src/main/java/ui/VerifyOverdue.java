@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-import business.BookCopy;
-import business.CheckoutEntry;
 import business.ControllerInterface;
 import business.SystemController;
 import business.exceptions.InvalidFieldException;
@@ -27,6 +25,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.util.Pair;
+import model.CheckoutEntry;
 
 public class VerifyOverdue extends BaseWindow {
 
@@ -70,7 +69,7 @@ public class VerifyOverdue extends BaseWindow {
 
 		vbox.getChildren().add(grid);
 
-		TableView<OverdueView> tableView = new TableView<>();
+		TableView<CheckoutEntry> tableView = new TableView<>();
 
 		List<Pair<String, String>> columns = new ArrayList<>();
 
@@ -81,7 +80,8 @@ public class VerifyOverdue extends BaseWindow {
 		columns.add(new Pair<String, String>("dueDate", "Due Date"));
 
 		for (Pair<String, String> pair : columns) {
-			TableColumn<OverdueView, String> column = new TableColumn<>(pair.getValue());
+
+			TableColumn<CheckoutEntry, String> column = new TableColumn<>(pair.getValue());
 			column.setCellValueFactory(new PropertyValueFactory<>(pair.getKey()));
 
 			column.prefWidthProperty().bind(tableView.widthProperty().divide(columns.size()));
@@ -100,17 +100,11 @@ public class VerifyOverdue extends BaseWindow {
 						tableView.setItems(null);
 						resultText.setText("");
 						ControllerInterface sc = new SystemController();							
-							List<BookCopy> checkedOutCopies = sc.verifyOverdue(isbn);
+							List<CheckoutEntry> checkoutEntries = sc.verifyOverdue(isbn);
 								List<OverdueView> overdueCheckOuts = new ArrayList<OverdueView>();
-								for (BookCopy copy : checkedOutCopies) {
-									// get checkout entry that has this copy and check due date
-									CheckoutEntry checkoutEntry = copy.getCheckoutEntry();								
-										overdueCheckOuts.add(new OverdueView(isbn, copy.getBook().getTitle(), copy.getCopyNum()
-												, checkoutEntry.getCheckoutRecord().getOwner().getName(), checkoutEntry.getDueDate()));
-									
-								}
-								if (overdueCheckOuts.size() > 0) {
-									tableView.setItems(FXCollections.observableArrayList(overdueCheckOuts));
+
+								if (checkoutEntries.size() > 0) {
+									tableView.setItems(FXCollections.observableArrayList(checkoutEntries));
 
 								} else {
 									displayMessage(Alert.AlertType.INFORMATION, "No Overdue Copies",

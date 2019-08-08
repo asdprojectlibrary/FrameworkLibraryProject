@@ -1,75 +1,75 @@
 package ui;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
-import business.Book;
 import business.ControllerInterface;
 import business.SystemController;
 import javafx.collections.FXCollections;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.util.Pair;
+import model.Book;
 
-public class AllBooksWindow  extends BaseWindow {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
-	public AllBooksWindow(Start mainApp) {
-		super(mainApp);
-		// TODO Auto-generated constructor stub
-	}
+public class AllBooksWindow extends BaseWindow {
 
-	protected   Pane getScreen() {
+    public AllBooksWindow(Start mainApp) {
+        super(mainApp);
+        // TODO Auto-generated constructor stub
+    }
 
-		TableView<Book> tableView = new TableView<>();
+    protected Pane getScreen() {
 
-		List<Pair<String, String>> columns = new ArrayList<>();
+        TableView<Book> tableView = new TableView<>();
 
-		columns.add(new Pair<String, String>("isbn","ISBN"));
-		columns.add(new Pair<String, String>("title", "Title"));
-		columns.add(new Pair<String, String>("maxCheckoutLength", "Max Checkout"));
-		columns.add(new Pair<String, String>("authors", "Authors"));
-		columns.add(new Pair<String, String>("numCopies", "Copies"));
-		
-		for (Pair<String, String> pair : columns) {
+        List<Pair<String, String>> columns = new ArrayList<>();
 
-			TableColumn<Book, String> column = new TableColumn<>(pair.getValue());
-			column.setCellValueFactory(new PropertyValueFactory<>(pair.getKey()));
-			column.prefWidthProperty().bind(tableView.widthProperty().divide(columns.size()));
-			tableView.getColumns().add(column);
-		}
+        columns.add(new Pair<String, String>("isbn", "ISBN"));
+        columns.add(new Pair<String, String>("title", "Title"));
+        columns.add(new Pair<String, String>("maxCheckoutLength", "Max Checkout"));
+        columns.add(new Pair<String, String>("authors", "Authors"));
+        columns.add(new Pair<String, String>("numCopies", "Copies"));
 
-		ControllerInterface ci = new SystemController();
-		tableView.setItems(FXCollections.observableArrayList(ci.allBooks()));
+        for (Pair<String, String> pair : columns) {
 
-		tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-			
-			if (newSelection != null) {
-				Alert alert = new Alert(AlertType.CONFIRMATION);
-				alert.setTitle("Book");
-				alert.setHeaderText(newSelection.getTitle());
-				alert.setContentText("Do you want to checkout this book?");
+            TableColumn<Book, String> column = new TableColumn<>(pair.getValue());
+            column.setCellValueFactory(new PropertyValueFactory<>(pair.getKey()));
+            column.prefWidthProperty().bind(tableView.widthProperty().divide(columns.size()));
+            tableView.getColumns().add(column);
+        }
 
-				Optional<ButtonType> result = alert.showAndWait();
-				if (result.get() == ButtonType.OK) {
-					
-					CheckoutWindow chw = new CheckoutWindow(mainApp);
-					chw.setISBN(newSelection.getIsbn());
-					
-					chw.setScreen();
-					
-				}
-			}
-			
-		});
+        ControllerInterface ci = new SystemController();
+        tableView.setItems(FXCollections.observableArrayList(ci.allBooks()));
 
-		return new VBox(tableView);
+        tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
 
-	}
+            if (newSelection != null) {
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Book");
+                alert.setHeaderText(newSelection.getTitle());
+                alert.setContentText("Do you want to checkout this book?");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK) {
+
+                    CheckoutWindow chw = new CheckoutWindow(mainApp);
+                    chw.setISBN(newSelection.getIsbn());
+
+                    chw.setScreen();
+
+                }
+            }
+
+        });
+
+        return new VBox(tableView);
+
+    }
 }

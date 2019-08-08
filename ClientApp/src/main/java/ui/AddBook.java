@@ -3,8 +3,6 @@ package ui;
 import java.util.ArrayList;
 import java.util.List;
 
-import business.Author;
-import business.Book;
 import business.ControllerInterface;
 import business.SystemController;
 import business.exceptions.AddBookException;
@@ -20,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import model.*;
 
 public class AddBook extends BaseWindow {
 
@@ -95,11 +94,8 @@ public class AddBook extends BaseWindow {
 						authors.add(author);
 
 						Book book = new Book(isbn, title, maxCheckoutLength, authors);
-						if (numOfCopies > 1) {
-							book.addCopy(numOfCopies - 1);// because 1 copy was created by default in book constructor
-						}
 
-						sc.saveBook(book);
+						sc.saveNewBook(book,numOfCopies);
 
 						displayMessage(Alert.AlertType.INFORMATION, "Book Added", "The Addition was successful");
 
@@ -108,10 +104,6 @@ public class AddBook extends BaseWindow {
 						throw new InvalidFieldException("Some fields have invalid data");
 					}
 
-				} catch (AddBookException ex) {
-					displayMessage(Alert.AlertType.ERROR, "No Duplicates Allowed", ex.getMessage());
-				} catch (InvalidFieldException emExc) {
-					displayMessage(Alert.AlertType.ERROR, "Please fill all fields correctly!", emExc.getMessage());
 				} catch (Exception exc) {
 					displayMessage(Alert.AlertType.ERROR, "Error!!!", exc.getMessage());
 				}

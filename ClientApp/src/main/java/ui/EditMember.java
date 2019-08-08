@@ -1,8 +1,6 @@
 package ui;
 
-import business.Address;
 import business.ControllerInterface;
-import business.LibraryMember;
 import business.SystemController;
 import business.exceptions.InvalidFieldException;
 import javafx.event.ActionEvent;
@@ -15,10 +13,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import model.*;
 
 public class EditMember extends BaseWindow {
 
-	private LibraryMember member;
+	private Member member;
 	TextField txtMemberID = new TextField();
 	TextField txtFirstName = new TextField();
 	TextField txtLastName = new TextField();
@@ -34,7 +33,7 @@ public class EditMember extends BaseWindow {
 	}
 
 	private void populateFields() {
-		txtMemberID.setText(member.getMemberId());
+		txtMemberID.setText(member.getId());
 		txtFirstName.setText(member.getFirstName());
 		txtLastName.setText(member.getLastName());
 		txtPhone.setText(member.getTelephone());
