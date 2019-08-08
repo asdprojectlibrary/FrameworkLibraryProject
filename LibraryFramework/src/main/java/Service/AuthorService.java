@@ -1,8 +1,7 @@
 package Service;
 
-import Repository.BaseRepository;
+import repository.BaseRepository;
 import model.Author;
-import model.Book;
 
 import java.util.List;
 

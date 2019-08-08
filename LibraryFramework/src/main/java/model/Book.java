@@ -18,6 +18,10 @@ final public class Book extends BaseModel {
     private String title;
     private int maxCheckoutLength;
 
+    public int getNumCopies(){
+        return copies.size();
+    }
+
     public void setIsbn(String isbn) {
         this.setIsbn(isbn);
         super.setId(isbn);

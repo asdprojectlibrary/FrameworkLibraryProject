@@ -1,7 +1,6 @@
 package dao.flatfile;
 
 import config.FlatFileConfig;
-import config.IConfig;
 import config.LibraryManager;
 
 import java.io.File;
@@ -11,7 +10,6 @@ import java.io.ObjectOutputStream;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class FlatFileStorage {
 
@@ -32,7 +30,7 @@ public class FlatFileStorage {
     public void saveToStorage(String type, Object ob) {
         ObjectOutputStream out = null;
         try {
-            Path path = getPath(type);
+            Path path = createPathIfNotExists(type);
 
             out = new ObjectOutputStream(Files.newOutputStream(path));
             out.writeObject(ob);
@@ -53,7 +51,7 @@ public class FlatFileStorage {
         Object retVal = null;
         try {
 
-            Path path = getPath(type);
+            Path path = createPathIfNotExists(type);
 
             in = new ObjectInputStream(Files.newInputStream(path));
             retVal = in.readObject();
@@ -71,7 +69,7 @@ public class FlatFileStorage {
         return retVal;
     }
 
-    private Path getPath(String type) throws IOException {
+    protected   Path createPathIfNotExists(String type) throws IOException {
 
         File file  =  new File(OUTPUT_DIR, type);
 

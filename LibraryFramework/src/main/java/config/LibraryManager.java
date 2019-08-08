@@ -1,6 +1,5 @@
 package config;
 
-import dao.TestData;
 import lombok.Data;
 
 @Data
@@ -13,10 +12,15 @@ final public class LibraryManager {
     private LibraryManager() {
     }
 
-    public void  init(IConfig config){
+    public void init(IConfig config, DataLoader dataLoader) {
+
         this.config = config;
-        //DataLoader.save();
-        //TestData.load();
+        config.initStructure();
+
+        if (dataLoader != null) {
+            dataLoader.load();
+        }
+
     }
 
     public static LibraryManager getInstance() {

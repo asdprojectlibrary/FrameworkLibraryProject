@@ -14,4 +14,9 @@ public class MysqlConfig implements  IConfig {
     public MysqlConfig(){
 
     }
+
+    @Override
+    public void initStructure() {
+
+    }
 }

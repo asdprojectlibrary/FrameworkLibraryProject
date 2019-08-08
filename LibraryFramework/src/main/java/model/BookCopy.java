@@ -34,4 +34,12 @@ final public class BookCopy extends BaseModel {
     public int hashCode() {
         return Objects.hash(this.getId());
     }
+
+    @Override
+    public String toString() {
+        return "BookCopy{" +
+                "Number =" + copyNum +
+                ", Available =" + isAvailable +
+                '}';
+    }
 }

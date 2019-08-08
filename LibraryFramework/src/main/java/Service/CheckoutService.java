@@ -1,6 +1,5 @@
 package Service;
 
-import Repository.BaseRepository;
 import exception.BookCopyNotAvailable;
 import exception.BookNotFound;
 import exception.LibraryMemberNotFound;
@@ -8,6 +7,7 @@ import model.Book;
 import model.BookCopy;
 import model.CheckoutEntry;
 import model.Member;
+import repository.BaseRepository;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -31,11 +31,32 @@ final public class CheckoutService {
         return repository.getDataAccess().getAll();
     }
 
+    public List<CheckoutEntry> getCheckoutEntries(String memberId, String isbn) {
+        return repository.getDataAccess().getAll().stream()
+                .filter(f ->
+                        f.getCheckoutItem().getBook().getIsbn().equals(isbn)
+                                &&
+                                f.getMember().getId().equals(memberId)
+                                &&
+                                f.getDueDate().isBefore(ChronoZonedDateTime.from(LocalDate.now())))
+                .collect(Collectors.toList());
+    }
+
+    public List<CheckoutEntry> getCheckoutEntries(String memberId) {
+        return repository.getDataAccess().getAll().stream()
+                .filter(f ->
+
+                        f.getMember().getId().equals(memberId)
+                                &&
+                                f.getDueDate().isBefore(ChronoZonedDateTime.from(LocalDate.now())))
+                .collect(Collectors.toList());
+    }
+
     public CheckoutEntry getOne(String key) {
         return repository.getDataAccess().get(key);
     }
 
-    public void checkOut(String memberId, String isbn) throws Exception {
+    public CheckoutEntry checkOut(String memberId, String isbn) throws Exception {
 
         MemberService memberService = new MemberService();
         Member member = memberService.getOne(memberId);
@@ -77,6 +98,8 @@ final public class CheckoutService {
 
                 bookService.save(book);
 
+                return checkoutEntry;
+
             } else {
                 throw new BookCopyNotAvailable();
             }
@@ -84,10 +107,10 @@ final public class CheckoutService {
 
     }
 
-    public List<CheckoutEntry> getOverdue( String isbn) {
+    public List<CheckoutEntry> getOverdue(String isbn) {
 
         return repository.getDataAccess().getAll().stream()
-                .filter(f->f.getCheckoutItem().getBook().getIsbn().equals(isbn) && f.getDueDate().isBefore(ChronoZonedDateTime.from(LocalDate.now())))
+                .filter(f -> f.getCheckoutItem().getBook().getIsbn().equals(isbn) && f.getDueDate().isBefore(ChronoZonedDateTime.from(LocalDate.now())))
                 .collect(Collectors.toList());
 
     }
