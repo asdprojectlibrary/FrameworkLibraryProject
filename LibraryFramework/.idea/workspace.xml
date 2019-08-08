@@ -7,8 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aba23be3-27ef-4a85-80d8-1127353aaca8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/ConcreteDataAccessFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/CheckoutDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/CheckoutDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/DataAccessFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/DataAccessFactory.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,152 +24,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/DataAccessAdapter/Adapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="389" column="5" lean-forward="true" selection-start-line="389" selection-start-column="5" selection-end-line="389" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#save#0;class#Adapter#0" />
-                <element signature="method#save#1;class#Adapter#0" />
-                <element signature="method#save#2;class#Adapter#0" />
-                <element signature="method#saveCheckoutRecord#0;class#Adapter#0" />
-                <element signature="method#updateBookCopy#0;class#Adapter#0" />
-                <element signature="method#searchLibraryMemberById#0;class#Adapter#0" />
-                <element signature="method#searchAllLibraryMember#0;class#Adapter#0" />
-                <element signature="method#searchBookByISBN#0;class#Adapter#0" />
-                <element signature="method#searchCheckoutEntryById#0;class#Adapter#0" />
-                <element signature="method#searchAllCheckoutEntry#0;class#Adapter#0" />
-                <element signature="method#searchBookAuthors#0;class#Adapter#0" />
-                <element signature="method#searchBookCopies#0;class#Adapter#0" />
-                <element signature="method#searchAllBook#0;class#Adapter#0" />
-                <element signature="method#searchAllCheckoutRecord#0;class#Adapter#0" />
-                <element signature="method#searchCheckoutRecordForMember#0;class#Adapter#0" />
-                <element signature="method#searchAllAuthors#0;class#Adapter#0" />
-                <element signature="method#searchBookCopyById#0;class#Adapter#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/AuthorDataAccess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#192#193#0" expanded="true" />
-                <element signature="e#227#228#0" expanded="true" />
-                <element signature="e#276#277#0" expanded="true" />
-                <element signature="e#321#322#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/config/IConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/BookDataAccess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="25" column="41" lean-forward="true" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#186#187#0" expanded="true" />
-                <element signature="e#219#220#0" expanded="true" />
-                <element signature="e#267#268#0" expanded="true" />
-                <element signature="e#309#310#0" expanded="true" />
-                <element signature="e#358#359#0" expanded="true" />
-                <element signature="e#388#389#0" expanded="true" />
-                <element signature="e#437#438#0" expanded="true" />
-                <element signature="e#485#486#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/config/LibraryManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/config/MysqlConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/CheckoutDataAccess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-              <folding>
-                <element signature="e#231#232#0" expanded="true" />
-                <element signature="e#273#274#0" expanded="true" />
-                <element signature="e#329#330#0" expanded="true" />
-                <element signature="e#378#379#0" expanded="true" />
-                <element signature="e#446#447#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
-                <element signature="e#584#585#0" expanded="true" />
-                <element signature="e#611#612#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/RDBDataAccess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="74" selection-start-line="11" selection-start-column="74" selection-end-line="11" selection-end-column="74" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/BaseModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/DataAccessFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+            <state relative-caret-position="136">
+              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/ConcreteDataAccessFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="41" lean-forward="true" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -182,8 +54,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -204,9 +76,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/model/value/Permission.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/DataAccess.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exception/BookNotFound.java" />
         <option value="$PROJECT_DIR$/src/main/java/Repository/CheckoutRecordRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/Repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/DataAccessFacade.java" />
@@ -247,7 +116,6 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/rdb/Command/BookSaveCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/AuthorDataAccess.java" />
         <option value="$PROJECT_DIR$/src/main/java/config/DataLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/DataAccessFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/config/LibraryManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Member.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/BaseModel.java" />
@@ -255,6 +123,10 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/rdb/DataAccessAdapter/TargetInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/rdb/DataAccessAdapter/Adapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/CheckoutDataAccess.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/IDataAccessFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/DataAccessFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/ConcreteDataAccessFactory2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/ConcreteDataAccessFactory.java" />
       </list>
     </option>
   </component>
@@ -266,10 +138,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-15" />
-    <option name="y" value="6" />
-    <option name="width" value="1152" />
-    <option name="height" value="309" />
+    <option name="x" value="3832" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -280,6 +152,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -319,6 +192,52 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="flatfile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="rdb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="rdb" type="462c0819:PsiDirectoryNode" />
+              <item name="Command" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="rdb" type="462c0819:PsiDirectoryNode" />
+              <item name="ModelDataAccess" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -341,7 +260,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -433,7 +351,8 @@
       <updated>1565033239589</updated>
       <workItem from="1565033244540" duration="52423000" />
       <workItem from="1565193786929" duration="15830000" />
-      <workItem from="1565213811987" duration="9097000" />
+      <workItem from="1565213811987" duration="9739000" />
+      <workItem from="1565259471553" duration="2623000" />
     </task>
     <task id="LOCAL-00001" summary="ok">
       <created>1565222967424</created>
@@ -456,11 +375,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565256201946</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ok">
+      <created>1565256751051</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1565256751051</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77651000" />
+    <option name="totallyTimeSpent" value="80916000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -472,10 +398,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1292" height="702" extended-state="6" />
+    <frame x="3832" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3802589" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20788912" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -515,20 +441,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="ok" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/exception/BookCopyDoesNotExist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exception/InvalidCredentials.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/value/Permission.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/data" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/nio/file/FileSystem.java" />
@@ -551,28 +463,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#431#432#0" expanded="true" />
             <element signature="e#487#488#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/flatfile/FlatFileStorage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/flatfile/FlatFileDataAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -606,13 +496,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/Command/MemberSaveCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="66" column="91" selection-start-line="66" selection-start-column="91" selection-end-line="66" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/Command/Command.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -627,16 +510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/IDataAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/TestData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1411">
@@ -645,26 +518,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#3423#3424#0" expanded="true" />
             <element signature="e#3440#3441#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/config/FlatFileConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/config/DataLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -742,16 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="6" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Address.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -838,10 +681,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="uml://JAVA/dao">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>dao</OriginalElement>
+          <nodes>
+            <node x="" y="">dao.flatfile</node>
+            <node x="" y="">dao.TestData</node>
+            <node x="" y="">dao.IDataAccess</node>
+            <node x="" y="">dao.rdb</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="130.0" y="88.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/DataAccessAdapter/Adapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="389" column="5" lean-forward="true" selection-start-line="389" selection-start-column="5" selection-end-line="389" selection-end-column="5" />
+        <state relative-caret-position="1105">
+          <caret line="389" column="5" selection-start-line="389" selection-start-column="5" selection-end-line="389" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#save#0;class#Adapter#0" />
@@ -865,17 +729,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/DataAccessFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/config/IConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        <state relative-caret-position="68">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/BaseModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/BaseModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/Command/MemberSaveCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="66" column="91" selection-start-line="66" selection-start-column="91" selection-end-line="66" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/config/LibraryManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/config/MysqlConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
@@ -885,27 +773,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/CheckoutDataAccess.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/config/FlatFileConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
-            <element signature="e#231#232#0" expanded="true" />
-            <element signature="e#273#274#0" expanded="true" />
-            <element signature="e#329#330#0" expanded="true" />
-            <element signature="e#378#379#0" expanded="true" />
-            <element signature="e#446#447#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#584#585#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/config/DataLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/IDataAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/flatfile/FlatFileStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/flatfile/FlatFileDataAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-237">
+          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Address.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/AuthorDataAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#192#193#0" expanded="true" />
+            <element signature="e#227#228#0" expanded="true" />
+            <element signature="e#276#277#0" expanded="true" />
+            <element signature="e#321#322#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/BookDataAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="25" column="41" lean-forward="true" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+        <state relative-caret-position="425">
+          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#186#187#0" expanded="true" />
@@ -920,6 +867,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/CheckoutDataAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding>
+            <element signature="e#231#232#0" expanded="true" />
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#329#330#0" expanded="true" />
+            <element signature="e#379#380#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/dao.rdb.ModelDataAccess">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>dao.rdb.ModelDataAccess</OriginalElement>
+          <nodes>
+            <node x="748.5" y="-27.0">dao.rdb.ModelDataAccess.DataAccessFactory</node>
+            <node x="733.0" y="76.0">dao.rdb.ModelDataAccess.ConcreteDataAccessFactory</node>
+            <node x="549.0" y="77.0">dao.rdb.ModelDataAccess.MemberDataAccess</node>
+            <node x="366.0" y="77.0">dao.rdb.ModelDataAccess.AuthorDataAccess</node>
+            <node x="168.0" y="77.0">dao.rdb.ModelDataAccess.CheckoutDataAccess</node>
+            <node x="0.0" y="77.0">dao.rdb.ModelDataAccess.BookDataAccess</node>
+            <node x="283.75" y="-28.0">dao.rdb.ModelDataAccess.RDBDataAccess</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="dao.rdb.ModelDataAccess.AuthorDataAccess" target="dao.rdb.ModelDataAccess.RDBDataAccess">
+              <point x="0.0" y="-13.5" />
+              <point x="447.5" y="57.0" />
+              <point x="369.875" y="57.0" />
+              <point x="17.625" y="13.5" />
+            </edge>
+            <edge source="dao.rdb.ModelDataAccess.MemberDataAccess" target="dao.rdb.ModelDataAccess.RDBDataAccess">
+              <point x="0.0" y="-13.5" />
+              <point x="630.5" y="47.0" />
+              <point x="405.125" y="47.0" />
+              <point x="52.875" y="13.5" />
+            </edge>
+            <edge source="dao.rdb.ModelDataAccess.BookDataAccess" target="dao.rdb.ModelDataAccess.RDBDataAccess">
+              <point x="0.0" y="-13.5" />
+              <point x="74.0" y="47.0" />
+              <point x="299.375" y="47.0" />
+              <point x="-52.875" y="13.5" />
+            </edge>
+            <edge source="dao.rdb.ModelDataAccess.ConcreteDataAccessFactory" target="dao.rdb.ModelDataAccess.DataAccessFactory">
+              <point x="0.0" y="-13.5" />
+              <point x="0.0" y="13.5" />
+            </edge>
+            <edge source="dao.rdb.ModelDataAccess.CheckoutDataAccess" target="dao.rdb.ModelDataAccess.RDBDataAccess">
+              <point x="0.0" y="-13.5" />
+              <point x="257.0" y="57.0" />
+              <point x="334.625" y="57.0" />
+              <point x="-17.625" y="13.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-147.0" y="-113.0" />
+          <SelectedNodes>
+            <node>dao.rdb.ModelDataAccess.RDBDataAccess</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/RDBDataAccess.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -930,62 +947,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/dao">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>dao</OriginalElement>
-          <nodes>
-            <node x="" y="">dao.flatfile</node>
-            <node x="" y="">dao.TestData</node>
-            <node x="" y="">dao.IDataAccess</node>
-            <node x="" y="">dao.rdb</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="129.5" y="88.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/AuthorDataAccess.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/ConcreteDataAccessFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#192#193#0" expanded="true" />
-            <element signature="e#227#228#0" expanded="true" />
-            <element signature="e#276#277#0" expanded="true" />
-            <element signature="e#321#322#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/config/IConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/config/LibraryManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        <state relative-caret-position="391">
+          <caret line="23" column="41" lean-forward="true" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/config/MysqlConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/DataAccessFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="136">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
