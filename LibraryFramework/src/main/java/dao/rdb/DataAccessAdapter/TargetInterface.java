@@ -36,6 +36,7 @@ public interface TargetInterface {
 
 
     public List<CheckoutRecord> searchAllCheckoutRecord();
+    public List<CheckoutEntry> searchAllCheckoutEntry();
     public List<Author> searchAllAuthors();
 
 }

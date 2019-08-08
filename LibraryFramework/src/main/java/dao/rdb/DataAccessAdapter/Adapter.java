@@ -282,6 +282,38 @@ public class Adapter implements TargetInterface {
         return checkoutEntry;
     }
 
+
+    @Override
+    public List<CheckoutEntry> searchAllCheckoutEntry(){
+        String query="select id, bookcopyId, memberId, duedate, checkoutdate from checkoutentry";
+        List<CheckoutEntry> listChkEntry=new ArrayList<>();
+
+        List<HashMap<String,Object>> listEntries=jdbcManager.selection(query);
+        for(HashMap<String,Object> rs: listEntries){
+            String entryId=(String) rs.get("id");
+            Integer bookCopyId=(Integer) rs.get("bookcopyId");
+            String memberId=(String) rs.get("memberId");
+            Member member=searchLibraryMemberById(memberId);
+
+            Date date1=(Date) rs.get("duedate");
+            Date date2=(Date) rs.get("checkoutdate");
+            ZoneId systemDefault = ZoneId.systemDefault();
+            ZonedDateTime dueDate=ZonedDateTime.ofInstant(date1.toInstant(), systemDefault);
+            ZonedDateTime checkoutDate=ZonedDateTime.ofInstant(date2.toInstant(), systemDefault);
+
+            BookCopy bookCopy=searchBookCopyById(bookCopyId);
+            CheckoutEntry checkoutEntry=new CheckoutEntry();
+            checkoutEntry.setCheckoutItem(bookCopy);
+            checkoutEntry.setDueDate(dueDate);
+            checkoutEntry.setCheckoutDate(checkoutDate);
+            checkoutEntry.setMember(member);
+            checkoutEntry.setId(entryId);
+
+            listChkEntry.add(checkoutEntry);
+        }
+        return listChkEntry;
+    }
+
     public List<Author> searchBookAuthors(String bookId){
         List<Author> authors=new ArrayList<>();
         String query="select * from (select id, ba.bookId, au.authorId, bio, p.idPerson, firstName, lastName, telephone, idAddress\n" +
