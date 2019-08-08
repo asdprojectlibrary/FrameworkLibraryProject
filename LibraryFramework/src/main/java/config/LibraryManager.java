@@ -15,7 +15,8 @@ final public class LibraryManager {
 
     public void  init(IConfig config){
         this.config = config;
-        TestData.load();
+        //DataLoader.save();
+        //TestData.load();
     }
 
     public static LibraryManager getInstance() {

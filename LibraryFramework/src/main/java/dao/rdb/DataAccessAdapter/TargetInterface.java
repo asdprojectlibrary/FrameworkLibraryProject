@@ -1,9 +1,6 @@
 package dao.rdb.DataAccessAdapter;
 
-import model.Book;
-import model.BookCopy;
-import model.CheckoutRecord;
-import model.Member;
+import model.*;
 
 import java.util.List;
 
@@ -13,9 +10,11 @@ public interface TargetInterface {
 
     public boolean save(Book book);
 
+    public boolean save(CheckoutEntry checkoutEntry);
+
     public boolean saveCheckoutRecord(CheckoutRecord chkOutRecord);
 
-   // public boolean saveUser(User user);
+    // public boolean saveUser(User user);
 
     public boolean updateLibraryMember(Member libraryMember);
 
@@ -29,11 +28,14 @@ public interface TargetInterface {
 
     public Book searchBookByISBN(String ISBN);
 
+    public CheckoutEntry searchCheckoutEntryById(String id);
+
     public List<Book> searchAllBook();
 
     public List<BookCopy> searchBookCopies(String isbn);
 
 
-    public List<CheckoutRecord> searchAllCheckoutRecord(Integer memberId);
+    public List<CheckoutRecord> searchAllCheckoutRecord();
+    public List<Author> searchAllAuthors();
 
 }

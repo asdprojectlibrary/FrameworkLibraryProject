@@ -12,7 +12,7 @@ public class AuthorDataAccess extends RDBDataAccess<Author> {
     }
     @Override
     public List<Author> getAll() {
-       return  null;
+       return  rdb.searchAllAuthors();
     }
 
     @Override

@@ -13,12 +13,13 @@ public class CheckoutDataAccess extends RDBDataAccess<CheckoutEntry> {
     }
     @Override
     public List<CheckoutEntry> getAll() {
+       // return rdb.searchAllCheckoutRecord();
         return null;
     }
 
     @Override
     public void save(CheckoutEntry checkoutEntry) {
-
+        //rdb.saveCheckoutRecord(checkoutEntry);
     }
 
     @Override

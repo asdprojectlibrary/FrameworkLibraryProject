@@ -11,7 +11,7 @@ final public class Member extends Person {
 
     public Member(String memberId, String fname, String lname, String tel,Address add) {
         super(fname,lname, tel, add);
-        this.setId( memberId);
+        this.setId(memberId);
         checkoutRecord = new CheckoutRecord();        // library member with zero checkout entries
     }
 }
