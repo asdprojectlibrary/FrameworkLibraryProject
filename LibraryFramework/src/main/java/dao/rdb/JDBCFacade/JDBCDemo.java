@@ -12,9 +12,12 @@ public class JDBCDemo {
         JDBCManager jdbMan=JDBCManager.getInstance();
         TargetInterface adapter=new Adapter();
 
+        //-------test creation of database-------
+        adapter.createDatabase("TestLibrary");
+
         //-------test get entry-------
-        CheckoutEntry ent=adapter.searchCheckoutEntryById("5");
-        System.out.println(ent);
+        //CheckoutEntry ent=adapter.searchCheckoutEntryById(5);
+        //System.out.println(ent);
 
         //--------save checkoutEntry---------
         /*Book book=adapter.searchBookByISBN("690");

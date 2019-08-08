@@ -2,6 +2,7 @@ package dao.rdb.DataAccessAdapter;
 
 import model.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface TargetInterface {
@@ -13,6 +14,9 @@ public interface TargetInterface {
     public boolean save(CheckoutEntry checkoutEntry);
 
     public boolean saveCheckoutRecord(CheckoutRecord chkOutRecord);
+
+    //==========If user equal null it does not exist=========
+    public User getUserInfo(String userId,String password);
 
     // public boolean saveUser(User user);
 
@@ -38,5 +42,8 @@ public interface TargetInterface {
     public List<CheckoutRecord> searchAllCheckoutRecord();
     public List<CheckoutEntry> searchAllCheckoutEntry();
     public List<Author> searchAllAuthors();
+
+    //========if it already exist it will return false and will not reset it======
+    public boolean createDatabase(String dataBaseName);
 
 }

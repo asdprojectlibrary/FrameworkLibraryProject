@@ -6,6 +6,9 @@ import dao.rdb.Command.MemberSaveCommand;
 import dao.rdb.JDBCFacade.JDBCManager;
 import model.*;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -150,7 +153,6 @@ public class Adapter implements TargetInterface {
         }
         return true;
     }
-
 
 
     public boolean updateBookCopy(BookCopy bookCopy){
@@ -480,6 +482,8 @@ public class Adapter implements TargetInterface {
         return authors;
     }
 
+
+
     public BookCopy searchBookCopyById(Integer bookCopyId){
         BookCopy bookCopy=null;
 
@@ -506,5 +510,80 @@ public class Adapter implements TargetInterface {
 
 
         return bookCopy;
+    }
+
+    @Override
+    public User getUserInfo(String userId,String password) {
+
+        String query="select usr.id, usr.userId, FullName, password, permission from user usr,permission per where usr.userId=per.userId "
+                    +"and usr.userId="+"'"+userId+"'"+" and password="+"'"+password+"'";
+
+        User user=null;
+        String fullName="";
+        String id="";
+        boolean exists=false;
+
+        List<Permission> permissions=new ArrayList<>();
+
+
+        List<HashMap<String,Object>> userInfo=jdbcManager.selection(query);
+
+        for(HashMap<String,Object> rs: userInfo){
+            exists=true;
+            id=(String) rs.get("id");
+            fullName=(String) rs.get("FullName");
+            String perm=(String) rs.get("permission");
+            if(perm.equals("librarian")){
+                permissions.add(Permission.LIBRARIAN);
+            }else if(perm.equals("admin")){
+                permissions.add(Permission.ADMIN);
+            }
+        }
+
+        if(exists){
+            user=new User(userId,password,permissions);
+        }
+
+        return user;
+    }
+
+
+    @Override
+    public boolean createDatabase(String dataBaseName) {
+        String dataBase="CREATE DATABASE "+dataBaseName;
+        boolean res=jdbcManager.updateData(dataBase);
+        boolean testResult=true;
+
+        String s= new String();
+        StringBuffer sb = new StringBuffer();
+        String dateBaseToUse="USE "+dataBaseName+";";
+        sb.append(dateBaseToUse);
+
+        if(res==true){
+            try{
+                FileReader fr = new FileReader(new File("src/resources/libraryDataBase.sql"));
+
+                BufferedReader br = new BufferedReader(fr);
+                while((s = br.readLine()) != null){
+                    sb.append(s);
+                }
+                br.close();
+
+                String[] inst = sb.toString().split(";");
+
+                for(int i = 0; i<inst.length; i++){
+                    if(!inst[i].trim().equals("")){
+                        jdbcManager.updateData(inst[i]);
+                        System.out.println(">>"+inst[i]);
+                    }
+                }
+            }catch(Exception ex){System.out.println(ex.getMessage());}
+
+        }else{
+            testResult=false;
+            System.out.println("Cannot create Database");
+        }
+
+        return testResult;
     }
 }

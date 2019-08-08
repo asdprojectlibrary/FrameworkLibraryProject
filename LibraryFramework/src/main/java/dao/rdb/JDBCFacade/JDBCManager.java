@@ -40,7 +40,7 @@ public class JDBCManager {
         // ********** Opening Database connection **********
         try{
 
-            MysqlConfig mysqlConfig = (MysqlConfig)LibraryManager.getInstance().getConfig();
+            MysqlConfig mysqlConfig = (MysqlConfig) LibraryManager.getInstance().getConfig();
 
             String DBurl =mysqlConfig.getDbUrl();// "jdbc:mysql://localhost:3306/library";
             conn = DriverManager.getConnection(DBurl,
@@ -50,7 +50,6 @@ public class JDBCManager {
             );
         }catch (SQLException ex){System.out.println("Driver : "+ex.getMessage());}
 
-        System.out.println(conn);
     }
 
 
