@@ -6,15 +6,12 @@ import dao.rdb.command.MemberSaveCommand;
 import dao.rdb.JDBCFacade.JDBCManager;
 import model.*;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-public class Adapter implements TargetInterface {
+public class DBAdapter implements DBTarget {
     private Command currentCommand;
     private Stack<Command> commandsExecuted;
     private JDBCManager jdbcManager=JDBCManager.getInstance();
@@ -52,6 +49,7 @@ public class Adapter implements TargetInterface {
 
     @Override
     public boolean save(Book book) {
+
         commandsExecuted=new Stack<>();
         boolean success=false;
 
@@ -130,6 +128,22 @@ public class Adapter implements TargetInterface {
     }
 
     @Override
+    public boolean save(Author author) {
+        System.out.println("In author : "+author.getId());
+
+        String query=" insert into author(bio,idPerson) values("
+                +"'"+author.getBio()+"'"+","+"'"+author.getId()+"'"+")";
+
+        Integer authorId=jdbcManager.insertData(query);
+
+        if(authorId==0)
+            return false;
+        else
+            return true;
+
+    }
+
+    @Override
     public boolean saveCheckoutRecord(CheckoutRecord chkOutRecord) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYMMdd");
 
@@ -192,7 +206,7 @@ public class Adapter implements TargetInterface {
         HashMap<String,Object> rs=jdbcManager.selection(query).get(0);
 
         Address add=new Address((String) rs.get("street"),(String) rs.get("city"),(String) rs.get("state"),(String) rs.get("zipCode"));
-        String idMem=(String) rs.get("memberId");
+        String idMem=rs.get("memberId").toString();
         String fname=(String) rs.get("firstName");
         String lName=(String) rs.get("lastName");
         String phone=(String) rs.get("telephone");
@@ -235,8 +249,8 @@ public class Adapter implements TargetInterface {
             HashMap<String,Object> rs=liMap.get(0);
 
 
-            String bookId=(String) rs.get("bookId");
-            String visbn=(String) rs.get("isbn");
+            String bookId=rs.get("bookId").toString();
+            String visbn=rs.get("isbn").toString();
             String title=(String) rs.get("title");
             Integer maxCheckoutLength=(Integer) rs.get("maxCheckoutLength");
             List<Author> liAuthors=searchBookAuthors(bookId);
@@ -328,7 +342,7 @@ public class Adapter implements TargetInterface {
 
         for(HashMap<String,Object> rs: listAuthors){
             Address add=new Address((String) rs.get("street"),(String) rs.get("city"),(String) rs.get("state"),(String) rs.get("zipCode"));
-            String authorId=(String) rs.get("authorId");
+            String authorId=rs.get("authorId").toString();
             String fname=(String) rs.get("firstName");
             String lName=(String) rs.get("lastName");
             String phone=(String) rs.get("telephone");
@@ -353,7 +367,7 @@ public class Adapter implements TargetInterface {
 
         for(HashMap<String,Object> rs: listCopies){
             Integer copyNum=(Integer) rs.get("copyNum");
-            String copyId=(String) rs.get("id");
+            String copyId=rs.get("id").toString();
             String visbn=(String) rs.get("isbn");
             String title=(String) rs.get("title");
             boolean isAvailable=(boolean) rs.get("isAvailable");
@@ -378,11 +392,12 @@ public class Adapter implements TargetInterface {
 
         for(HashMap<String,Object> rs: liMap){
 
-            String bookId=(String) rs.get("bookId");
-            String visbn=(String) rs.get("isbn");
+            String bookId=rs.get("bookId").toString();
+            String visbn=rs.get("isbn").toString();
             String title=(String) rs.get("title");
             Integer maxCheckoutLength=(Integer) rs.get("maxCheckoutLength");
             List<Author> liAuthors=searchBookAuthors(bookId);
+            //System.out.println("Null value : "+bookId+" / "+liAuthors);
             Book book=new Book(visbn,title,maxCheckoutLength,liAuthors);
             book.setId(bookId);
             searchBookCopies(book);
@@ -404,7 +419,7 @@ public class Adapter implements TargetInterface {
 
         List<HashMap<String,Object>> allMembers=jdbcManager.selection(query);
         for(HashMap<String,Object> rs: allMembers){
-            String memberId=(String) rs.get("memberId");
+            String memberId=rs.get("memberId").toString();
             CheckoutRecord checkoutRecord=searchCheckoutRecordForMember(memberId);
 
             checkoutRecords.add(checkoutRecord);
@@ -469,7 +484,7 @@ public class Adapter implements TargetInterface {
 
         for(HashMap<String,Object> rs: listAuthors){
             Address add=new Address((String) rs.get("street"),(String) rs.get("city"),(String) rs.get("state"),(String) rs.get("zipCode"));
-            String authorId=(String) rs.get("authorId");
+            String authorId=rs.get("authorId").toString();
             String fname=(String) rs.get("firstName");
             String lName=(String) rs.get("lastName");
             String phone=(String) rs.get("telephone");
@@ -523,7 +538,7 @@ public class Adapter implements TargetInterface {
         String id="";
         boolean exists=false;
 
-        List<Permission> permissions=new ArrayList<>();
+        Auth permissions=null;
 
 
         List<HashMap<String,Object>> userInfo=jdbcManager.selection(query);
@@ -534,34 +549,46 @@ public class Adapter implements TargetInterface {
             fullName=(String) rs.get("FullName");
             String perm=(String) rs.get("permission");
             if(perm.equals("librarian")){
-                permissions.add(Permission.LIBRARIAN);
+                permissions=Auth.LIBRARIAN;
             }else if(perm.equals("admin")){
-                permissions.add(Permission.ADMIN);
+                permissions=Auth.ADMIN;
+            }else if(perm.equals("both")){
+                permissions=Auth.BOTH;
             }
         }
 
         if(exists){
-            user=new User(userId,password,permissions);
+            user=new User();
+            user.setPassword(password);
+            user.setAuthorization(permissions);
         }
 
         return user;
     }
 
+    public boolean runScript(String filePath){
+        boolean testResult=true;
+        jdbcManager.runScript(filePath);
+
+        return testResult;
+    }
 
     @Override
-    public boolean createDatabase(String dataBaseName) {
-        String dataBase="CREATE DATABASE "+dataBaseName;
-        boolean res=jdbcManager.updateData(dataBase);
-        boolean testResult=true;
+    public boolean createTables() {
 
-        String s= new String();
+
+
+        boolean testResult=true;
+        jdbcManager.runScript("src/main/resources/libraryDataBase.sql");
+
+        /*String s= new String();
         StringBuffer sb = new StringBuffer();
         String dateBaseToUse="USE "+dataBaseName+";";
         sb.append(dateBaseToUse);
 
-        if(res==true){
+
             try{
-                FileReader fr = new FileReader(new File("src/resources/libraryDataBase.sql"));
+                FileReader fr = new FileReader(new File("src/main/resources/libraryDataBase.sql"));
 
                 BufferedReader br = new BufferedReader(fr);
                 while((s = br.readLine()) != null){
@@ -582,7 +609,7 @@ public class Adapter implements TargetInterface {
         }else{
             testResult=false;
             System.out.println("Cannot create Database");
-        }
+        }*/
 
         return testResult;
     }

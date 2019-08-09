@@ -1,13 +1,13 @@
 package config;
 
-public abstract class DataLoader {
+public abstract  class DataLoader {
 
     protected final void load() {
 
+        loadMembers();
+        loadAuthors();
         loadBooks();
         loadCopies();
-        loadAuthors();
-        loadMembers();
         loadUsers();
 
     }
@@ -24,4 +24,3 @@ public abstract class DataLoader {
     public  abstract void loadUsers();
 
 }
-

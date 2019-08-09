@@ -1,8 +1,12 @@
 package dao.rdb.JDBCFacade;
 
+import com.ibatis.common.jdbc.ScriptRunner;
 import config.LibraryManager;
 import config.MysqlConfig;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.Reader;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,8 +48,8 @@ public class JDBCManager {
 
             String DBurl =mysqlConfig.getDbUrl();// "jdbc:mysql://localhost:3306/library";
             conn = DriverManager.getConnection(DBurl,
-                    mysqlConfig.getUsername(),// "root",
-                    mysqlConfig.getPassword() //"root"
+                    mysqlConfig.getUsername(),
+                    mysqlConfig.getPassword()
 
             );
         }catch (SQLException ex){System.out.println("Driver : "+ex.getMessage());}
@@ -138,5 +142,25 @@ public class JDBCManager {
             conn.close();
         }catch(SQLException ex){}
 
+    }
+
+    public boolean runScript(String SQLScriptFilePath){
+        try {
+            // Initialize object for ScripRunner
+            ScriptRunner sr = new ScriptRunner(conn, false, false);
+
+            // Give the input file to Reader
+            Reader reader = new BufferedReader(
+                    new FileReader(SQLScriptFilePath));
+
+            // Exctute script
+            sr.runScript(reader);
+
+        } catch (Exception e) {
+            //System.err.println("Failed to Execute" + SQLScriptFilePath
+              //      + " The error is " + e.getMessage());
+        }
+
+        return true;
     }
 }

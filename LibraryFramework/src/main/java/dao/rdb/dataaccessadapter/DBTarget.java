@@ -5,13 +5,15 @@ import model.*;
 import java.util.HashMap;
 import java.util.List;
 
-public interface TargetInterface {
+public interface DBTarget {
 
     public boolean save(Member libMemb);
 
     public boolean save(Book book);
 
     public boolean save(CheckoutEntry checkoutEntry);
+
+    public boolean save(Author author);
 
     public boolean saveCheckoutRecord(CheckoutRecord chkOutRecord);
 
@@ -44,6 +46,6 @@ public interface TargetInterface {
     public List<Author> searchAllAuthors();
 
     //========if it already exist it will return false and will not reset it======
-    public boolean createDatabase(String dataBaseName);
+    public boolean createTables();
 
 }

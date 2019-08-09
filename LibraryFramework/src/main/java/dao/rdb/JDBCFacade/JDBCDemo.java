@@ -1,16 +1,54 @@
 package dao.rdb.JDBCFacade;
 
+import Service.AuthorService;
+import Service.BookService;
+import com.ibatis.common.jdbc.ScriptRunner;
+import config.FlatFileConfig;
+import config.LibraryManager;
+import config.MysqlConfig;
 import dao.rdb.dataaccessadapter.*;
-import model.CheckoutEntry;
+import exception.BookCopyNotAvailable;
+import model.*;
+
+import java.nio.file.Paths;
+import java.time.ZonedDateTime;
+import java.util.List;
 
 public class JDBCDemo {
 
     public static void main(String[] args) {
-        JDBCManager jdbMan=JDBCManager.getInstance();
-        TargetInterface adapter=new Adapter();
+        //---------Testing framework--------
+        /*FlatFileConfig config = new FlatFileConfig();
+
+        config.setDir(Paths.get(
+                System.getProperties().getProperty("user.dir"),
+                "src", "main", "resources"
+        ).toString());*/
+
+        MysqlConfig config = new MysqlConfig();
+
+        config.setDbUrl("jdbc:mysql://localhost:3306/testDB");
+        config.setPassword("root");
+        config.setUsername("root");
+
+
+
+        LibraryManager.getInstance().init(config, null);
+
+
+       BookService bookService=new BookService();
+        List<Book> books=bookService.getAll();
+        System.out.println("all bookds : "+books);
+
+        AuthorService authorService=new AuthorService();
+        System.out.println(authorService.getAll());
+
+
+        //JDBCManager jdbMan=JDBCManager.getInstance();
+        //TargetInterface adapter=new Adapter();
 
         //-------test creation of database-------
-        adapter.createDatabase("TestLibrary");
+        //adapter.createDatabase("TestLibrary");
 
         //-------test get entry-------
         //CheckoutEntry ent=adapter.searchCheckoutEntryById(5);
@@ -19,10 +57,10 @@ public class JDBCDemo {
         //--------save checkoutEntry---------
         /*Book book=adapter.searchBookByISBN("690");
         BookCopy bookCopy1=null;
-        try{
-            bookCopy1=book.getNextAvailableCopy();
-        }catch (BookCopyNotAvailable ex){System.out.println("No copy available");}
-        Member member=adapter.searchLibraryMemberById(1);
+
+            bookCopy1=book.getCopies().get(0);
+
+        Member member=adapter.searchLibraryMemberById("1");
         ZonedDateTime dueDate=ZonedDateTime.now();
         ZonedDateTime chkoutDate=ZonedDateTime.now();
         CheckoutEntry checkoutEntry=new CheckoutEntry(bookCopy1,member,dueDate,chkoutDate);

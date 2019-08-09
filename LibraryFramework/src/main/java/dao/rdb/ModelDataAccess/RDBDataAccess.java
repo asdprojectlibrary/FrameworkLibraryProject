@@ -1,8 +1,8 @@
 package dao.rdb.ModelDataAccess;
 
 import dao.IDataAccess;
-import dao.rdb.dataaccessadapter.Adapter;
-import dao.rdb.dataaccessadapter.TargetInterface;
+import dao.rdb.dataaccessadapter.DBAdapter;
+import dao.rdb.dataaccessadapter.DBTarget;
 import model.BaseModel;
 
 import java.util.List;
@@ -10,10 +10,10 @@ import java.util.List;
 public abstract class RDBDataAccess<T extends BaseModel> implements IDataAccess<T> {
 
     private Class<T> type;
-    protected TargetInterface rdb;
+    protected DBTarget rdb;
 
     public  RDBDataAccess(Class<T> type) {
-        rdb = new Adapter();
+        rdb = new DBAdapter();
         this.type = type;
     }
 

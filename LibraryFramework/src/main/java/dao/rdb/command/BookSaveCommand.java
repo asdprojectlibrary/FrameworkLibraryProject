@@ -40,6 +40,8 @@ public class BookSaveCommand implements Command {
     }
 
     public boolean saveAutor(){
+        System.out.println("The author : "+author);
+
         String query=" insert into bookauthor(bookId,authorId) values("
                 +"'"+book.getId()+"'"+","+"'"+author.getId()+"'"+")";
 
@@ -52,6 +54,7 @@ public class BookSaveCommand implements Command {
     }
 
     public boolean saveBook(){
+        String title=book.getTitle().replace("'","''");
         String query=" insert into book(isbn,title,maxCheckoutLength) values("
                 +"'"+book.getIsbn()+"'"+","+"'"+book.getTitle()+"'"+","
                 +"'"+book.getMaxCheckoutLength()+"'"+")";
@@ -94,7 +97,7 @@ public class BookSaveCommand implements Command {
     }
 
     public boolean removeBookCopy(){
-        String query=" delete from bookcopy where authorId="+"'"+bookCopy.getId()+"'";
+        String query=" delete from bookcopy where id="+"'"+bookCopy.getId()+"'";
         return jdbcManager.deleteData(query);
 
     }

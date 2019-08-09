@@ -1,8 +1,8 @@
 package config;
 
+import dao.rdb.dataaccessadapter.DBAdapter;
+import dao.rdb.dataaccessadapter.DBTarget;
 import lombok.Data;
-
-import java.nio.file.Paths;
 
 @Data
 public class MysqlConfig implements  IConfig {
@@ -18,5 +18,7 @@ public class MysqlConfig implements  IConfig {
     @Override
     public void initStructure() {
 
+        DBTarget dbAdapter=new DBAdapter();
+        dbAdapter.createTables();
     }
 }
