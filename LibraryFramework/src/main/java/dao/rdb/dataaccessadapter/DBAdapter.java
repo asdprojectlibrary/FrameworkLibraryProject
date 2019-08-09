@@ -2,6 +2,7 @@ package dao.rdb.dataaccessadapter;
 
 import config.LibraryManager;
 import config.MysqlConfig;
+import dao.rdb.JDBCFacade.JDBCManager;
 import dao.rdb.command.BookSaveCommand;
 import dao.rdb.command.Command;
 import dao.rdb.command.MemberSaveCommand;
