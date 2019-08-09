@@ -45,7 +45,12 @@ public class JDBCDemo {
 
 
         LibraryManager.getInstance().init(config, null);
-        UserService userService=new UserService();
+
+        BookService bookService=new BookService();
+        bookService.addCopies("1234",4);
+
+        System.out.println("copies : "+bookService.getOne("1234").getNumCopies());
+       /* UserService userService=new UserService();
 
         try{
             User usr=userService.Login("103","103");
@@ -57,7 +62,7 @@ public class JDBCDemo {
            System.out.println("User or password invalid : "+ex.getMessage());
         }catch (Exception ex2){
             System.out.println("User or password invalid"+ex2.getMessage());
-        }
+        }*/
 
         DBAdapter ad=new DBAdapter();
         //System.out.println(ad.searchAllCheckoutEntry());

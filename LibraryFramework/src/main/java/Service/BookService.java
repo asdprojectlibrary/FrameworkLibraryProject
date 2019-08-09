@@ -33,13 +33,14 @@ final public class BookService {
     public void addCopies(String isbn, int num) {
 
         Book book = getOne(isbn);
+        int lastNumber=book.getNumCopies();
 
         for (int i = 0; i < num; i++) {
 
             BookCopy copy = new BookCopy();
             copy.setBook(book);
             copy.setAvailable(true);
-            copy.setCopyNum(i);
+            copy.setCopyNum(lastNumber+i);
             book.getCopies().add(copy);
 
         }
