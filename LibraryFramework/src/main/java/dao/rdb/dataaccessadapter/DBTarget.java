@@ -18,7 +18,9 @@ public interface DBTarget {
     public boolean saveCheckoutRecord(CheckoutRecord chkOutRecord);
 
     //==========If user equal null it does not exist=========
-    public User getUserInfo(String userId,String password);
+    public User searchUserWithPWD(String userId,String password);
+    public User searchUser(String userId);
+    public List<User> searchAllUsers();
 
     // public boolean saveUser(User user);
 

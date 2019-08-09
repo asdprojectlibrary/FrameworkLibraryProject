@@ -2,6 +2,7 @@ package dao.rdb.JDBCFacade;
 
 import Service.AuthorService;
 import Service.BookService;
+import Service.UserService;
 import com.ibatis.common.jdbc.ScriptRunner;
 import config.FlatFileConfig;
 import config.LibraryManager;
@@ -34,14 +35,22 @@ public class JDBCDemo {
 
 
         LibraryManager.getInstance().init(config, null);
+        //UserService userService=new UserService();
+
+          //  User usr=userService.getOne("103");
+         //   System.out.println("In there"+usr);
+
+        DBAdapter ad=new DBAdapter();
+        System.out.println(ad.searchUser("103"));
 
 
-       BookService bookService=new BookService();
+
+       /*BookService bookService=new BookService();
         List<Book> books=bookService.getAll();
         System.out.println("all bookds : "+books);
 
         AuthorService authorService=new AuthorService();
-        System.out.println(authorService.getAll());
+        System.out.println(authorService.getAll());*/
 
 
         //JDBCManager jdbMan=JDBCManager.getInstance();

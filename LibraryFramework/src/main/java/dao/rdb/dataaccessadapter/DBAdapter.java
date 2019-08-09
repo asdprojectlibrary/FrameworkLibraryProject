@@ -528,7 +528,7 @@ public class DBAdapter implements DBTarget {
     }
 
     @Override
-    public User getUserInfo(String userId,String password) {
+    public User searchUserWithPWD(String userId,String password) {
 
         String query="select usr.id, usr.userId, FullName, password, permission from user usr,permission per where usr.userId=per.userId "
                     +"and usr.userId="+"'"+userId+"'"+" and password="+"'"+password+"'";
@@ -545,7 +545,7 @@ public class DBAdapter implements DBTarget {
 
         for(HashMap<String,Object> rs: userInfo){
             exists=true;
-            id=(String) rs.get("id");
+            id=rs.get("id").toString();
             fullName=(String) rs.get("FullName");
             String perm=(String) rs.get("permission");
             if(perm.equals("librarian")){
@@ -612,5 +612,88 @@ public class DBAdapter implements DBTarget {
         }*/
 
         return testResult;
+    }
+
+    @Override
+    public User searchUser(String userId) {
+        System.out.println("yes");
+        String query="select usr.id, usr.userId, FullName, password, permission from user usr,permission per where usr.userId=per.userId "
+                +"and usr.userId="+"'"+userId+"'";
+
+        User user=null;
+        String fullName="";
+        String id="";
+        String pwd="";
+        boolean exists=false;
+
+        Auth permissions=null;
+
+
+        List<HashMap<String,Object>> userInfo=jdbcManager.selection(query);
+
+        for(HashMap<String,Object> rs: userInfo){
+            exists=true;
+            id=rs.get("id").toString();
+            fullName=(String) rs.get("FullName");
+            pwd=(String) rs.get("password");
+            String perm=(String) rs.get("permission");
+            if(perm.equals("librarian")){
+                permissions=Auth.LIBRARIAN;
+            }else if(perm.equals("admin")){
+                permissions=Auth.ADMIN;
+            }else if(perm.equals("both")){
+                permissions=Auth.BOTH;
+            }
+        }
+
+        if(exists){
+            user=new User();
+            user.setPassword(pwd);
+            user.setAuthorization(permissions);
+        }
+
+        return user;
+    }
+
+
+    @Override
+    public List<User> searchAllUsers() {
+        System.out.println("yes");
+        String query="select usr.id, usr.userId, FullName, password, permission from user usr,permission per where usr.userId=per.userId ";
+        List<User> listUser=new ArrayList<>();
+
+        User user=null;
+        String fullName="";
+        String id="";
+        String pwd="";
+        boolean exists=false;
+
+        Auth permissions=null;
+
+
+        List<HashMap<String,Object>> userInfo=jdbcManager.selection(query);
+
+        for(HashMap<String,Object> rs: userInfo){
+            exists=true;
+            id=rs.get("id").toString();
+            fullName=(String) rs.get("FullName");
+            pwd=(String) rs.get("password");
+            String perm=(String) rs.get("permission");
+            if(perm.equals("librarian")){
+                permissions=Auth.LIBRARIAN;
+            }else if(perm.equals("admin")){
+                permissions=Auth.ADMIN;
+            }else if(perm.equals("both")){
+                permissions=Auth.BOTH;
+            }
+            user=new User();
+            user.setPassword(pwd);
+            user.setAuthorization(permissions);
+            listUser.add(user);
+        }
+
+
+
+        return listUser;
     }
 }
