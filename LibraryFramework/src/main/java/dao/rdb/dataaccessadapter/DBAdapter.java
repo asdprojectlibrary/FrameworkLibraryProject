@@ -225,7 +225,7 @@ public class DBAdapter implements DBTarget {
 
         for(HashMap<String,Object> rs: listMemb){
             Address add=new Address((String) rs.get("street"),(String) rs.get("city"),(String) rs.get("state"),(String) rs.get("zipCode"));
-            String idMem=(String) rs.get("memberId");
+            String idMem=rs.get("memberId").toString();
             String fname=(String) rs.get("firstName");
             String lName=(String) rs.get("lastName");
             String phone=(String) rs.get("telephone");
@@ -270,9 +270,9 @@ public class DBAdapter implements DBTarget {
 
         List<HashMap<String,Object>> listEntries=jdbcManager.selection(query);
         for(HashMap<String,Object> rs: listEntries){
-            String entryId=(String) rs.get("id");
+            String entryId=rs.get("id").toString();
             Integer bookCopyId=(Integer) rs.get("bookcopyId");
-            String memberId=(String) rs.get("memberId");
+            String memberId=rs.get("memberId").toString();
             Member member=searchLibraryMemberById(memberId);
 
             Date date1=(Date) rs.get("duedate");
@@ -306,9 +306,9 @@ public class DBAdapter implements DBTarget {
 
         List<HashMap<String,Object>> listEntries=jdbcManager.selection(query);
         for(HashMap<String,Object> rs: listEntries){
-            String entryId=(String) rs.get("id");
+            String entryId=rs.get("id").toString();
             Integer bookCopyId=(Integer) rs.get("bookcopyId");
-            String memberId=(String) rs.get("memberId");
+            String memberId=rs.get("memberId").toString();
             Member member=searchLibraryMemberById(memberId);
 
             Date date1=(Date) rs.get("duedate");
@@ -443,7 +443,7 @@ public class DBAdapter implements DBTarget {
 
         List<HashMap<String,Object>> mapEntry=jdbcManager.selection(query);
         for(HashMap<String,Object> rs: mapEntry){
-            String entryId=(String) rs.get("id");
+            String entryId=rs.get("id").toString();
             Integer bookCopyId=(Integer) rs.get("bookcopyId");
 
 
@@ -511,7 +511,7 @@ public class DBAdapter implements DBTarget {
 
         for(HashMap<String,Object> rs: listCopies){
             Integer copyNum=(Integer) rs.get("copyNum");
-            String copyId=(String) rs.get("id");
+            String copyId=rs.get("id").toString();
             String visbn=(String) rs.get("isbn");
             String title=(String) rs.get("title");
             boolean isAvailable=(boolean) rs.get("isAvailable");
