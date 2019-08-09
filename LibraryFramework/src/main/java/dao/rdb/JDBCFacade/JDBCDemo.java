@@ -13,7 +13,12 @@ import exception.BookCopyNotAvailable;
 import model.*;
 
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.chrono.ChronoZonedDateTime;
+import java.util.Date;
 import java.util.List;
 
 public class JDBCDemo {
@@ -43,9 +48,15 @@ public class JDBCDemo {
 
         //DBAdapter ad=new DBAdapter();
         //System.out.println(ad.searchAllCheckoutEntry());
-        CheckoutService checkoutService=new CheckoutService();
-        System.out.println(checkoutService.getCheckoutEntries("2"));
+        //CheckoutService checkoutService=new CheckoutService();
+        //System.out.println(checkoutService.getCheckoutEntries("2"));
 
+
+       CheckoutService checkoutService=new CheckoutService();
+       System.out.println(checkoutService.getOverdue("23-11451"));
+        //ZonedDateTime date1=ZonedDateTime.now();
+        //ZonedDateTime date2=ZonedDateTime.now();
+        //date1.isBefore(date2);
 
        /*BookService bookService=new BookService();
         List<Book> books=bookService.getAll();

@@ -8,8 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d9549138-fab5-418b-8f92-3b1d9b9ec6e0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/CheckoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/CheckoutService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Service/CheckoutService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/CheckoutService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/rdb/JDBCFacade/JDBCDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/rdb/JDBCFacade/JDBCDemo.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/dataaccessadapter/DBAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8585">
-              <caret line="513" column="49" selection-start-line="513" selection-start-column="49" selection-end-line="513" selection-end-column="49" />
+            <state relative-caret-position="396">
+              <caret line="279" column="12" lean-forward="true" selection-start-line="279" selection-start-column="12" selection-end-line="279" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,26 +54,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/BookDataAccess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#186#187#0" expanded="true" />
-                <element signature="e#219#220#0" expanded="true" />
-                <element signature="e#267#268#0" expanded="true" />
-                <element signature="e#309#310#0" expanded="true" />
-                <element signature="e#358#359#0" expanded="true" />
-                <element signature="e#388#389#0" expanded="true" />
-                <element signature="e#437#438#0" expanded="true" />
-                <element signature="e#485#486#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/dataaccessadapter/DBTarget.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="214">
@@ -84,14 +65,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="46" column="46" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
+            <state relative-caret-position="180">
+              <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/jre/lib/rt.jar!/java/time/ZoneId.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="102" column="86" selection-start-line="102" selection-start-column="41" selection-end-line="102" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -105,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Service/CheckoutService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+            <state relative-caret-position="393">
+              <caret line="114" column="1" lean-forward="true" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#567#568#0" expanded="true" />
@@ -239,9 +229,9 @@
         <option value="$PROJECT_DIR$/src/main/java/config/LibraryManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/rdb/dataaccessadapter/DBTarget.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/UserDataAccess.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Service/CheckoutService.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/rdb/dataaccessadapter/DBAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Service/CheckoutService.java" />
       </list>
     </option>
   </component>
@@ -507,11 +497,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565328830547</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ok">
+      <created>1565353489494</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1565353489495</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124262000" />
+    <option name="totallyTimeSpent" value="126388000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -526,8 +523,8 @@
     <frame x="-6" y="-6" width="1292" height="702" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6080139" visible="true" weight="0.2605178" />
-      <window_info id="Structure" order="1" sideWeight="0.39198607" side_tool="true" weight="0.2605178" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6077922" visible="true" weight="0.2605178" />
+      <window_info id="Structure" order="1" sideWeight="0.3922078" side_tool="true" visible="true" weight="0.2605178" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -566,13 +563,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="ok" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Member.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1119,10 +1109,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/jre/lib/rt.jar!/java/time/ZonedDateTime.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="155" selection-start-line="155" selection-end-line="155" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/jre/lib/rt.jar!/java/time/ZoneId.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="102" column="86" selection-start-line="102" selection-start-column="41" selection-end-line="102" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Service/CheckoutService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="114" column="1" lean-forward="true" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#567#568#0" expanded="true" />
+            <element signature="e#637#638#0" expanded="true" />
+            <element signature="e#795#796#0" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/dataaccessadapter/DBAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8585">
-          <caret line="513" column="49" selection-start-line="513" selection-start-column="49" selection-end-line="513" selection-end-column="49" />
+        <state relative-caret-position="396">
+          <caret line="279" column="12" lean-forward="true" selection-start-line="279" selection-start-column="12" selection-end-line="279" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1131,31 +1149,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="46" column="46" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
+        <state relative-caret-position="180">
+          <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/jre/lib/rt.jar!/java/time/ZonedDateTime.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="155" selection-start-line="155" selection-end-line="155" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Service/CheckoutService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#637#638#0" expanded="true" />
-            <element signature="e#795#796#0" expanded="true" />
-            <element signature="e#853#854#0" expanded="true" />
           </folding>
         </state>
       </provider>
