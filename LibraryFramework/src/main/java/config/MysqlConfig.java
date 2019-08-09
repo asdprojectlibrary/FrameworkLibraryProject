@@ -21,5 +21,6 @@ public class MysqlConfig implements  IConfig {
 
         DBTarget dbAdapter=new DBAdapter();
         dbAdapter.createTables();
+
     }
 }

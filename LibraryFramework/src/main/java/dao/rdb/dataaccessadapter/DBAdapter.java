@@ -591,7 +591,7 @@ public class DBAdapter implements DBTarget {
 
         boolean testResult=true;
         //jdbcManager.runScript("src/main/java/config/libraryDataBase.sql");
-        jdbcManager.runScript(mysqlConfig.getScriptPath());
+        jdbcManager.runScript(mysqlConfig.getScriptPath()+"libraryDataBase.sql");
 
         /*String s= new String();
         StringBuffer sb = new StringBuffer();
