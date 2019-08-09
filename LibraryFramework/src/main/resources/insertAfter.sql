@@ -5,10 +5,10 @@ insert into author(bio,idPerson) values('Author of childrens books',4);
 insert into author(bio,idPerson) values('Known for her clever style',5);
 
 insert into bookauthor(bookId,authorId) values(1,2);
-insert into bookauthor(bookId,authorId) values(2,2);
+insert into bookauthor(bookId,authorId) values(2,3);
 insert into bookauthor(bookId,authorId) values(3,2);
-insert into bookauthor(bookId,authorId) values(4,2);
-insert into bookauthor(bookId,authorId) values(5,2);
+insert into bookauthor(bookId,authorId) values(4,1);
+insert into bookauthor(bookId,authorId) values(5,4);
 insert into bookauthor(bookId,authorId) values(6,2);
 
 

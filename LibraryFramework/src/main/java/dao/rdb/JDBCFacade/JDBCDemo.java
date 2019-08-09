@@ -8,6 +8,7 @@ import com.ibatis.common.jdbc.ScriptRunner;
 import config.FlatFileConfig;
 import config.LibraryManager;
 import config.MysqlConfig;
+import dao.rdb.command.BookSaveCommand;
 import dao.rdb.dataaccessadapter.*;
 import exception.BookCopyNotAvailable;
 import model.*;
@@ -46,17 +47,21 @@ public class JDBCDemo {
           //  User usr=userService.getOne("103");
          //   System.out.println("In there"+usr);
 
-        //DBAdapter ad=new DBAdapter();
+        DBAdapter ad=new DBAdapter();
         //System.out.println(ad.searchAllCheckoutEntry());
         //CheckoutService checkoutService=new CheckoutService();
         //System.out.println(checkoutService.getCheckoutEntries("2"));
 
 
-       CheckoutService checkoutService=new CheckoutService();
-       System.out.println(checkoutService.getOverdue("23-11451"));
+       //CheckoutService checkoutService=new CheckoutService();
+       //System.out.println(checkoutService.getOverdue("23-11451"));
         //ZonedDateTime date1=ZonedDateTime.now();
         //ZonedDateTime date2=ZonedDateTime.now();
         //date1.isBefore(date2);
+
+        Book book=ad.searchBookByISBN("23-11451");
+        System.out.println(book);
+        ad.save(book);
 
        /*BookService bookService=new BookService();
         List<Book> books=bookService.getAll();

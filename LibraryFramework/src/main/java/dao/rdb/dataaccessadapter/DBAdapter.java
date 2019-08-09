@@ -52,11 +52,21 @@ public class DBAdapter implements DBTarget {
 
         commandsExecuted=new Stack<>();
         boolean success=false;
+        boolean testBook=false;
+        if(book==null)
+            return false;
 
 
+        if(searchBookByISBN(book.getIsbn())!=null){
+            testBook=true;
+        }else{
+            currentCommand=new BookSaveCommand(book);
+            testBook=currentCommand.execute();
 
-        currentCommand=new BookSaveCommand(book);
-        if(currentCommand.execute()==true){
+        }
+
+
+        if(testBook){
 
             commandsExecuted.push(currentCommand);
 
@@ -129,7 +139,6 @@ public class DBAdapter implements DBTarget {
 
     @Override
     public boolean save(Author author) {
-        System.out.println("In author : "+author.getId());
 
         String query=" insert into author(bio,idPerson) values("
                 +"'"+author.getBio()+"'"+","+"'"+author.getId()+"'"+")";
