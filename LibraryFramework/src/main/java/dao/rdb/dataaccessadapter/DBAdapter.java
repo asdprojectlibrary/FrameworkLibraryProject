@@ -1,5 +1,7 @@
 package dao.rdb.dataaccessadapter;
 
+import config.LibraryManager;
+import config.MysqlConfig;
 import dao.rdb.command.BookSaveCommand;
 import dao.rdb.command.Command;
 import dao.rdb.command.MemberSaveCommand;
@@ -585,10 +587,11 @@ public class DBAdapter implements DBTarget {
     @Override
     public boolean createTables() {
 
-
+        MysqlConfig mysqlConfig = (MysqlConfig) LibraryManager.getInstance().getConfig();
 
         boolean testResult=true;
-        jdbcManager.runScript("src/main/resources/libraryDataBase.sql");
+        //jdbcManager.runScript("src/main/java/config/libraryDataBase.sql");
+        jdbcManager.runScript(mysqlConfig.getScriptPath());
 
         /*String s= new String();
         StringBuffer sb = new StringBuffer();

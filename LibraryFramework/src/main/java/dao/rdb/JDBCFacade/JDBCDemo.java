@@ -38,6 +38,7 @@ public class JDBCDemo {
         config.setDbUrl("jdbc:mysql://localhost:3306/testDB");
         config.setPassword("root");
         config.setUsername("root");
+        config.setScriptPath("src/main/java/config/libraryDataBase.sql");
 
 
 
