@@ -26,12 +26,13 @@ public class BookSaveCommand implements Command {
     }
 
     public boolean saveBookCopy(){
-        String queryDelete="delete from bookcopy where bookId="+"'"+bookCopy.getBook().getId()+"'";
+        String queryDelete="delete from bookcopy where bookId="+"'"+bookCopy.getBook().getId()+"'"
+                +" and copyNum="+"'"+bookCopy.getCopyNum()+"'";
         jdbcManager.deleteData(queryDelete);
 
 
         String query=" insert into bookcopy(bookId,copyNum,isAvailable) values("
-                +"'"+bookCopy.getBook().getId()+"'"+","+"'"+(int) bookCopy.getCopyNum()+"'"+","
+                +"'"+bookCopy.getBook().getId()+"'"+","+"'"+bookCopy.getCopyNum()+"'"+","
                 +"'"+1+"'"+")";
         System.out.println("Book copy saving frame: "+query);
         Integer copyId=jdbcManager.insertData(query);
@@ -44,7 +45,8 @@ public class BookSaveCommand implements Command {
     }
 
     public boolean saveAutor(){
-        String queryDelete="delete from bookauthor where bookId="+"'"+book.getId()+"'";
+        String queryDelete="delete from bookauthor where bookId="+"'"+book.getId()+"'"
+                +" and authorId="+"'"+author.getId()+"'";
         jdbcManager.deleteData(queryDelete);
 
         String query=" insert into bookauthor(bookId,authorId) values("
