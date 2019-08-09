@@ -38,8 +38,8 @@ final public class UserService {
         }
         else
         {
-            User user =getOne(id);
 
+            User user =getOne(id);
 
             if(user==null){
                 throw new  Exception("User ("+id+") not found");

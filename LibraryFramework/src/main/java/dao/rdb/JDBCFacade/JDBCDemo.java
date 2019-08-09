@@ -11,6 +11,8 @@ import config.MysqlConfig;
 import dao.rdb.command.BookSaveCommand;
 import dao.rdb.dataaccessadapter.*;
 import exception.BookCopyNotAvailable;
+import exception.LoginException;
+import javafx.scene.control.Alert;
 import model.*;
 
 import java.nio.file.Paths;
@@ -43,10 +45,19 @@ public class JDBCDemo {
 
 
         LibraryManager.getInstance().init(config, null);
-        //UserService userService=new UserService();
+        UserService userService=new UserService();
 
-          //  User usr=userService.getOne("103");
-         //   System.out.println("In there"+usr);
+        try{
+            User usr=userService.Login("103","103");
+
+            System.out.println("auto : "+usr.getAuthorization());
+
+
+        }catch (LoginException ex){
+           System.out.println("User or password invalid : "+ex.getMessage());
+        }catch (Exception ex2){
+            System.out.println("User or password invalid"+ex2.getMessage());
+        }
 
         DBAdapter ad=new DBAdapter();
         //System.out.println(ad.searchAllCheckoutEntry());
@@ -60,9 +71,9 @@ public class JDBCDemo {
         //ZonedDateTime date2=ZonedDateTime.now();
         //date1.isBefore(date2);
 
-        Book book=ad.searchBookByISBN("23-11451");
-        System.out.println(book);
-        ad.save(book);
+        //Book book=ad.searchBookByISBN("23-11451");
+        //System.out.println(book);
+        //ad.save(book);
 
        /*BookService bookService=new BookService();
         List<Book> books=bookService.getAll();

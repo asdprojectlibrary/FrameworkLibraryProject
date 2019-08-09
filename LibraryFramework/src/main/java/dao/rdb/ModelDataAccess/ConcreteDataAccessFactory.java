@@ -1,10 +1,7 @@
 package dao.rdb.ModelDataAccess;
 
 import config.LibraryManager;
-import model.Author;
-import model.Book;
-import model.CheckoutEntry;
-import model.Member;
+import model.*;
 
 public class ConcreteDataAccessFactory implements DataAccessFactory{
 
@@ -26,6 +23,8 @@ public class ConcreteDataAccessFactory implements DataAccessFactory{
         }
         else  if (type == CheckoutEntry.class) {
             return new CheckoutDataAccess();
+        }else  if (type == User.class) {
+            return new UserDataAccess();
         }
 
         return null;
