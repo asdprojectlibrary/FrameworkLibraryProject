@@ -37,8 +37,7 @@ final public class CheckoutService {
                         f.getCheckoutItem().getBook().getIsbn().equals(isbn)
                                 &&
                                 f.getMember().getId().equals(memberId)
-                                &&
-                                f.getDueDate().isBefore(ChronoZonedDateTime.from(LocalDate.now())))
+                                )
                 .collect(Collectors.toList());
     }
 
@@ -47,8 +46,7 @@ final public class CheckoutService {
                 .filter(f ->
 
                         f.getMember().getId().equals(memberId)
-                                &&
-                                f.getDueDate().isBefore(ChronoZonedDateTime.from(LocalDate.now())))
+                               )
                 .collect(Collectors.toList());
     }
 
@@ -110,7 +108,7 @@ final public class CheckoutService {
     public List<CheckoutEntry> getOverdue(String isbn) {
 
         return repository.getDataAccess().getAll().stream()
-                .filter(f -> f.getCheckoutItem().getBook().getIsbn().equals(isbn) && f.getDueDate().isBefore(ChronoZonedDateTime.from(LocalDate.now())))
+                .filter(f -> f.getCheckoutItem().getBook().getIsbn().equals(isbn) && f.getDueDate().isBefore(ZonedDateTime.now()))
                 .collect(Collectors.toList());
 
     }

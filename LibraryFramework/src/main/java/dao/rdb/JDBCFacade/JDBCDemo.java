@@ -2,17 +2,24 @@ package dao.rdb.JDBCFacade;
 
 import Service.AuthorService;
 import Service.BookService;
+import Service.CheckoutService;
 import Service.UserService;
 import com.ibatis.common.jdbc.ScriptRunner;
 import config.FlatFileConfig;
 import config.LibraryManager;
 import config.MysqlConfig;
+import dao.rdb.command.BookSaveCommand;
 import dao.rdb.dataaccessadapter.*;
 import exception.BookCopyNotAvailable;
 import model.*;
 
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.chrono.ChronoZonedDateTime;
+import java.util.Date;
 import java.util.List;
 
 public class JDBCDemo {
@@ -31,6 +38,7 @@ public class JDBCDemo {
         config.setDbUrl("jdbc:mysql://localhost:3306/testDB");
         config.setPassword("root");
         config.setUsername("root");
+        config.setScriptPath("src/main/java/config/libraryDataBase.sql");
 
 
 
@@ -41,9 +49,20 @@ public class JDBCDemo {
          //   System.out.println("In there"+usr);
 
         DBAdapter ad=new DBAdapter();
-        System.out.println(ad.searchUser("103"));
+        //System.out.println(ad.searchAllCheckoutEntry());
+        //CheckoutService checkoutService=new CheckoutService();
+        //System.out.println(checkoutService.getCheckoutEntries("2"));
 
 
+       //CheckoutService checkoutService=new CheckoutService();
+       //System.out.println(checkoutService.getOverdue("23-11451"));
+        //ZonedDateTime date1=ZonedDateTime.now();
+        //ZonedDateTime date2=ZonedDateTime.now();
+        //date1.isBefore(date2);
+
+        Book book=ad.searchBookByISBN("23-11451");
+        System.out.println(book);
+        ad.save(book);
 
        /*BookService bookService=new BookService();
         List<Book> books=bookService.getAll();

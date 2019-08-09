@@ -9,7 +9,7 @@ import java.util.Objects;
 @NoArgsConstructor
 final public class BookCopy extends BaseModel {
     private Book book;
-    private long copyNum;
+    private int copyNum;
     private boolean isAvailable;
 
     public BookCopy(Book book, int copyNum, boolean isAvailable) {

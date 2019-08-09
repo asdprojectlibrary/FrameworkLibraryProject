@@ -1,6 +1,7 @@
 package dao.rdb.dataaccessadapter;
 
-import dao.rdb.JDBCFacade.JDBCManager;
+import config.LibraryManager;
+import config.MysqlConfig;
 import dao.rdb.command.BookSaveCommand;
 import dao.rdb.command.Command;
 import dao.rdb.command.MemberSaveCommand;
@@ -51,12 +52,23 @@ public class DBAdapter implements DBTarget {
     @Override
     public boolean save(Book book) {
 
-        commandsExecuted = new Stack<>();
-        boolean success = false;
+        commandsExecuted=new Stack<>();
+        boolean success=false;
+        boolean testBook=false;
+        if(book==null)
+            return false;
 
 
-        currentCommand = new BookSaveCommand(book);
-        if (currentCommand.execute() == true) {
+        if(searchBookByISBN(book.getIsbn())!=null){
+            testBook=true;
+        }else{
+            currentCommand=new BookSaveCommand(book);
+            testBook=currentCommand.execute();
+
+        }
+
+
+        if(testBook){
 
             commandsExecuted.push(currentCommand);
 
@@ -129,7 +141,6 @@ public class DBAdapter implements DBTarget {
 
     @Override
     public boolean save(Author author) {
-        System.out.println("In author : " + author.getId());
 
         String query = " insert into author(bio,idPerson) values("
                 + "'" + author.getBio() + "'" + "," + "'" + author.getId() + "'" + ")";
@@ -568,9 +579,11 @@ public class DBAdapter implements DBTarget {
     @Override
     public boolean createTables() {
 
+        MysqlConfig mysqlConfig = (MysqlConfig) LibraryManager.getInstance().getConfig();
 
-        boolean testResult = true;
-        jdbcManager.runScript("src/main/resources/libraryDataBase.sql");
+        boolean testResult=true;
+        //jdbcManager.runScript("src/main/java/config/libraryDataBase.sql");
+        jdbcManager.runScript(mysqlConfig.getScriptPath()+"libraryDataBase.sql");
 
         /*String s= new String();
         StringBuffer sb = new StringBuffer();

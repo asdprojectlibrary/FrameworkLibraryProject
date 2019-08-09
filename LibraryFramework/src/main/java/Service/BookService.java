@@ -39,7 +39,7 @@ final public class BookService {
             BookCopy copy = new BookCopy();
             copy.setBook(book);
             copy.setAvailable(true);
-            copy.setCopyNum(System.currentTimeMillis() + 1);
+            copy.setCopyNum(i);
             book.getCopies().add(copy);
 
         }
