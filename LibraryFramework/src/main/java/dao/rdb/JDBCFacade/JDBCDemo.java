@@ -2,6 +2,7 @@ package dao.rdb.JDBCFacade;
 
 import Service.AuthorService;
 import Service.BookService;
+import Service.CheckoutService;
 import Service.UserService;
 import com.ibatis.common.jdbc.ScriptRunner;
 import config.FlatFileConfig;
@@ -40,9 +41,10 @@ public class JDBCDemo {
           //  User usr=userService.getOne("103");
          //   System.out.println("In there"+usr);
 
-        DBAdapter ad=new DBAdapter();
-        System.out.println(ad.searchUser("103"));
-
+        //DBAdapter ad=new DBAdapter();
+        //System.out.println(ad.searchAllCheckoutEntry());
+        CheckoutService checkoutService=new CheckoutService();
+        System.out.println(checkoutService.getCheckoutEntries("2"));
 
 
        /*BookService bookService=new BookService();

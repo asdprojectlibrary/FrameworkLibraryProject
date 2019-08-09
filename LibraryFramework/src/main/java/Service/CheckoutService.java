@@ -37,8 +37,7 @@ final public class CheckoutService {
                         f.getCheckoutItem().getBook().getIsbn().equals(isbn)
                                 &&
                                 f.getMember().getId().equals(memberId)
-                                &&
-                                f.getDueDate().isBefore(ChronoZonedDateTime.from(LocalDate.now())))
+                                )
                 .collect(Collectors.toList());
     }
 
@@ -47,8 +46,7 @@ final public class CheckoutService {
                 .filter(f ->
 
                         f.getMember().getId().equals(memberId)
-                                &&
-                                f.getDueDate().isBefore(ChronoZonedDateTime.from(LocalDate.now())))
+                               )
                 .collect(Collectors.toList());
     }
 
