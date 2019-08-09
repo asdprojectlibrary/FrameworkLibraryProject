@@ -31,9 +31,9 @@ public class BookSaveCommand implements Command {
 
 
         String query=" insert into bookcopy(bookId,copyNum,isAvailable) values("
-                +"'"+bookCopy.getBook().getId()+"'"+","+"'"+bookCopy.getCopyNum()+"'"+","
+                +"'"+bookCopy.getBook().getId()+"'"+","+"'"+(int) bookCopy.getCopyNum()+"'"+","
                 +"'"+1+"'"+")";
-
+        System.out.println("Book copy saving frame: "+query);
         Integer copyId=jdbcManager.insertData(query);
         bookCopy.setId(copyId.toString());
         if(copyId==0)
