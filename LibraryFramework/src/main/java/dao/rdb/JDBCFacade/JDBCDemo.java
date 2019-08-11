@@ -18,7 +18,7 @@ public class JDBCDemo {
 
         MysqlConfig config = new MysqlConfig();
 
-        //config
+        //config new
         config.setDbUrl("jdbc:mysql://localhost:3306/testDB");
         config.setPassword("root");
         config.setUsername("root");
