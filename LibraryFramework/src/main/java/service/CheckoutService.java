@@ -1,4 +1,4 @@
-package Service;
+package service;
 
 import exception.BookCopyNotAvailable;
 import exception.BookNotFound;
@@ -9,9 +9,7 @@ import model.CheckoutEntry;
 import model.Member;
 import repository.BaseRepository;
 
-import java.time.LocalDate;
 import java.time.ZonedDateTime;
-import java.time.chrono.ChronoZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

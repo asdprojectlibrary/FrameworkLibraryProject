@@ -1,28 +1,9 @@
 package dao.rdb.JDBCFacade;
 
-import Service.AuthorService;
-import Service.BookService;
-import Service.CheckoutService;
-import Service.UserService;
-import com.ibatis.common.jdbc.ScriptRunner;
-import config.FlatFileConfig;
+import service.BookService;
 import config.LibraryManager;
 import config.MysqlConfig;
-import dao.rdb.command.BookSaveCommand;
 import dao.rdb.dataaccessadapter.*;
-import exception.BookCopyNotAvailable;
-import exception.LoginException;
-import javafx.scene.control.Alert;
-import model.*;
-
-import java.nio.file.Paths;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.chrono.ChronoZonedDateTime;
-import java.util.Date;
-import java.util.List;
 
 public class JDBCDemo {
 

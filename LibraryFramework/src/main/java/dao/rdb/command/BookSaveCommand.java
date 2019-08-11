@@ -110,7 +110,7 @@ public class BookSaveCommand implements Command {
     }
 
     @Override
-    public boolean undo() {
+    public boolean rollBack() {
         boolean test1=true;
         boolean test2=true;
 
