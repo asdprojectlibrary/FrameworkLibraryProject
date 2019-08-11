@@ -43,7 +43,7 @@ public class DBAdapter implements DBTarget {
 
         if (success == false) {
             for (Command cmd : commandsExecuted) {
-                cmd.undo();
+                cmd.rollBack();
             }
         }
 
@@ -100,14 +100,14 @@ public class DBAdapter implements DBTarget {
 
             if (testAuthor == false || testCopy == false) {
                 for (Command cmd : commandsExecuted) {
-                    cmd.undo();
+                    cmd.rollBack();
                 }
                 return false;
             }
         } else {
             System.out.println("else false");
             for (Command cmd : commandsExecuted) {
-                cmd.undo();
+                cmd.rollBack();
             }
             return false;
         }
