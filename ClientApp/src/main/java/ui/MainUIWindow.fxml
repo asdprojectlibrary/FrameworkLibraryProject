@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="271.0" prefWidth="363.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MainUIWindow">
+   <children>
+      <Label layoutX="24.0" layoutY="106.0" prefHeight="54.0" prefWidth="108.0" text="Selection Action" />
+      <ComboBox fx:id="cmbFeaturesDropDown" layoutX="180.0" layoutY="121.0" onAction="#showFeature" prefHeight="25.0" prefWidth="150.0" promptText="Select Action" />
+      <Button fx:id="btnProceed" layoutX="270.0" layoutY="223.0" mnemonicParsing="false" onAction="#showFeature" text="Proceed" />
+      <Label alignment="CENTER" layoutX="98.0" layoutY="29.0" prefHeight="17.0" prefWidth="224.0" text="Welcome">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <MenuBar layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="419.0">
+        <menus>
+          <Menu id="mnuLogout" mnemonicParsing="false" text="Logout">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

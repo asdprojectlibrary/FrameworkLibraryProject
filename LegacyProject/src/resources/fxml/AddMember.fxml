@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="454.0" prefWidth="569.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddMemberController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <BorderPane layoutX="23.0" layoutY="14.0" prefHeight="451.0" prefWidth="541.0000999999975">
+      <bottom>
+        <HBox id="paneBotton" alignment="CENTER" prefHeight="37.0" prefWidth="542.0" spacing="20.0">
+          <children>
+            <Button id="btn_cancel" fx:id="btn_reset" mnemonicParsing="false" onAction="#resetField" prefWidth="108.90234375" text="reset" />
+            <Button fx:id="btn_save" mnemonicParsing="false" onAction="#saveMember" prefWidth="119.0" text="Save member" />
+          </children>
+          <padding>
+            <Insets left="50.0" />
+          </padding>
+        </HBox>
+      </bottom>
+      <right>
+        <GridPane prefHeight="387.0" prefWidth="498.0">
+          <children>
+            <Label prefWidth="82.0" text="Firstname :" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+            <Label prefWidth="82.0" text="Lastname :" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label prefWidth="99.0" text="Phonenumber : " GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <TextField fx:id="firstName" maxWidth="-Infinity" prefWidth="244.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <TextField fx:id="lastName" maxWidth="-Infinity" prefWidth="244.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="phoneNumber" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="244.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="204.0" prefWidth="449.0" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+              <children>
+                <Text fill="#606060" layoutX="12.0" layoutY="13.0" scaleX="1.0" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adress Information" underline="true">
+                  <font>
+                    <Font name="System Bold" size="12.0" />
+                  </font>
+                </Text>
+                <GridPane fx:id="idPaneAddress" layoutX="12.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="194.0" prefWidth="448.0" style="-fx-border-color: lightgray;">
+                  <children>
+                    <Label text="Street : " GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+                    <Label text="City : " GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                    <Label text="State : " GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                    <Label text="Zip: " GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                    <TextField fx:id="city" maxWidth="-Infinity" prefWidth="245.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField fx:id="state" maxWidth="-Infinity" prefWidth="245.00009999999747" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <TextField fx:id="zip" maxWidth="-Infinity" prefWidth="245.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <TextField fx:id="street" maxWidth="-Infinity" prefWidth="244.00009999999747" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="*" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                      <fill>
+                        <Color blue="0.000" green="0.000" red="0.800" fx:id="x1" />
+                      </fill>
+                    </Text>
+                    <Text fill="$x1" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="96.3372802734375" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <Text fill="$x1" strokeType="OUTSIDE" strokeWidth="0.0" text="*" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <Text fill="$x1" strokeType="OUTSIDE" strokeWidth="0.0" text="*" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="243.0" minWidth="10.0" prefWidth="123.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="353.0" minWidth="10.0" prefWidth="246.3333740234375" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="4.66668701171875" prefWidth="72.6666259765625" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints maxHeight="48.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="56.0" minHeight="0.0" prefHeight="56.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+              </children>
+            </Pane>
+            <Text fill="$x1" scaleX="1.3989071038251366" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <Text fill="$x1" scaleX="1.3989071038251366" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="139.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" minWidth="10.0" prefWidth="247.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="355.0" minWidth="10.0" prefWidth="112.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.0" minHeight="10.0" prefHeight="220.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="192.0" minHeight="6.0" prefHeight="6.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </right>
+    </BorderPane>
+  </children>
+</AnchorPane>

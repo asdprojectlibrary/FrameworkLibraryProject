@@ -1,0 +1,24 @@
+#top-container{
+     -fx-background-color: #fbffd1;
+}
+
+
+#idPaneAddress {
+    -fx-border-color: #dfdfdf;
+}
+
+
+
+
+#checkout-window-main-content {
+	-fx-background-color: #fff;
+}
+
+#checkout-form {
+	-fx-background-color: #f00;
+}
+
+#pane {
+    -fx-border-color: #dfdfdf;
+}
+
