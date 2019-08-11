@@ -3,11 +3,11 @@ package dao.rdb.ModelDataAccess;
 import config.LibraryManager;
 import model.*;
 
-public class ConcreteDataAccessFactory implements DataAccessFactory{
+public class RDBDataAccessFactory implements DataAccessFactory{
 
     private static DataAccessFactory instance;
 
-    private ConcreteDataAccessFactory() {
+    private RDBDataAccessFactory() {
     }
 
     public <T> RDBDataAccess getDataAccess(Class<T> type) {
@@ -36,7 +36,7 @@ public class ConcreteDataAccessFactory implements DataAccessFactory{
         if (instance == null) {
             synchronized (LibraryManager.class) {
                 if (instance == null) {
-                    instance = new ConcreteDataAccessFactory();
+                    instance = new RDBDataAccessFactory();
                 }
             }
         }

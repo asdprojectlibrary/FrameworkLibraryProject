@@ -5,7 +5,7 @@ import config.IConfig;
 import config.LibraryManager;
 import dao.IDataAccess;
 import dao.flatfile.FlatFileDataAccess;
-import dao.rdb.ModelDataAccess.ConcreteDataAccessFactory;
+import dao.rdb.ModelDataAccess.RDBDataAccessFactory;
 import dao.rdb.ModelDataAccess.DataAccessFactory;
 import model.BaseModel;
 
@@ -23,7 +23,7 @@ final public class BaseRepository<T extends BaseModel> {
                 this.dataAccess = new FlatFileDataAccess<>(type);
             } else {
                 //Factory method
-                DataAccessFactory dataAccessFactory= ConcreteDataAccessFactory.getInstance();
+                DataAccessFactory dataAccessFactory= RDBDataAccessFactory.getInstance();
                 this.dataAccess = dataAccessFactory.getDataAccess(type);
             }
         }
