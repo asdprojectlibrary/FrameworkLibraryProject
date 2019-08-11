@@ -18,7 +18,7 @@ final public class LibraryManager {
         this.config = config;
         config.initStructure();
 
-        if (dataLoader != null) {
+        if (dataLoader != null ) {
             dataLoader.load();
         }
 

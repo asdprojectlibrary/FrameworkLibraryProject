@@ -1,16 +1,16 @@
 package dataaccess;
 
-import Service.AuthorService;
-import Service.BookService;
-import Service.MemberService;
-import Service.UserService;
+import service.AuthorService;
+import service.BookService;
+import service.MemberService;
+import service.UserService;
 import config.DataLoader;
 
 public class DataLoaderImpl extends DataLoader {
 
     @Override
     public void loadBooks() {
-        new BookService().save(TestData.allBooks);
+        new service.BookService().save(TestData.allBooks);
     }
 
     @Override
