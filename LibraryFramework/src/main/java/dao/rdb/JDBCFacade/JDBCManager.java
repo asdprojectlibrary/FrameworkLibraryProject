@@ -27,7 +27,7 @@ public class JDBCManager {
         private static JDBCManager instance=new JDBCManager();
     }
 
-    public synchronized static JDBCManager getInstance() {
+    public  static JDBCManager getInstance() {
         return InnerJDBCManager.instance;
     }
 
