@@ -80,10 +80,10 @@ public class AuthorSaveCommand implements Command {
     }
 
     public boolean saveAuthor() {
-        //Integer idAdress = libMember.getAddress().getIdAddress();
+
         String idPerson = author.getId();
         String query = " insert into author(bio,idPerson) values("
-                + "'"+author.getBio()+"'"+","+"'" + idPerson + "'" + ")";
+                + "'"+author.getBio().replace("'","''")+"'"+","+"'" + idPerson + "'" + ")";
 
         Integer idAuthor = jdbcManager.insertData(query);
         author.setId(idAuthor.toString());
