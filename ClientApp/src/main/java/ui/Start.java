@@ -3,6 +3,7 @@ package ui;
 import business.SystemController;
 import config.FlatFileConfig;
 import config.LibraryManager;
+import config.MysqlConfig;
 import dataaccess.DataLoaderImpl;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -52,20 +53,21 @@ public class Start extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-
+ /*
         FlatFileConfig config = new FlatFileConfig();
 
         config.setDir(Paths.get(
                 System.getProperties().getProperty("user.dir"),
                 "src", "main", "resources"
         ).toString());
-		/*
+
+       */
         MysqlConfig config = new MysqlConfig();
 
-        config.setDbUrl("");
-        config.setPassword("");
-        config.setUsername("");
-		 */
+       config.setDbUrl("jdbc:mysql://localhost:3306/lib?useSSL-=false&characterEncoding=latin1&useConfigs=maxPerformance");
+        config.setPassword("root");
+        config.setUsername("root");
+
 
         LibraryManager.getInstance().init(config, new DataLoaderImpl());
 

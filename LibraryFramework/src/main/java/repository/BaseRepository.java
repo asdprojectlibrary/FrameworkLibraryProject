@@ -13,7 +13,6 @@ final public class BaseRepository<T extends BaseModel> {
 
     IDataAccess<T> dataAccess;
 
-
     public BaseRepository(Class<T> type)  {
 
         IConfig config = LibraryManager.getInstance().getConfig();
@@ -27,7 +26,6 @@ final public class BaseRepository<T extends BaseModel> {
                 this.dataAccess = dataAccessFactory.getDataAccess(type);
             }
         }
-
 
     }
 

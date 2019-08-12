@@ -12,10 +12,6 @@ public class MysqlConfig implements  IConfig {
     private  String username;
 
 
-    public MysqlConfig(){
-
-    }
-
     @Override
     public void initStructure() {
 

@@ -89,7 +89,7 @@ public class CheckoutWindow extends BaseWindow {
 
 		columns.add(new Pair<String, String>("checkoutDate", "Checkout Date"));
 		columns.add(new Pair<String, String>("dueDate", "Due Date"));
-		columns.add(new Pair<String, String>("bookCopy", "Book Copy"));
+		columns.add(new Pair<String, String>("checkoutItem", "Book Copy"));
 
 		for (Pair<String, String> pair : columns) {
 
