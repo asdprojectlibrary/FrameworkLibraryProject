@@ -1,16 +1,17 @@
-package dataaccess;
+package dao;
 
+import dao.TestData;
 import service.AuthorService;
 import service.BookService;
 import service.MemberService;
 import service.UserService;
 import config.DataLoader;
 
-public class DataLoaderImpl extends DataLoader {
+public class DataLoaderImplFlatFile extends DataLoader {
 
     @Override
     public void loadBooks() {
-        new service.BookService().save(TestData.allBooks);
+       new BookService().save(TestData.allBooks);
     }
 
     @Override
@@ -39,5 +40,6 @@ public class DataLoaderImpl extends DataLoader {
     @Override
     public void loadUsers() {
         new UserService().save(TestData.allUsers);
+
     }
 }

@@ -34,7 +34,7 @@ public class TestData {
 			add(new Author("Joe", "Thomas", "641-445-2123", addresses.get(0), "A happy man is he."));
 			add(new Author("Sandra", "Thomas", "641-445-2123", addresses.get(0), "A happy wife is she."));
 			add(new Author("Nirmal", "Pugh", "641-919-3223", addresses.get(1), "Thinker of thoughts."));
-			add(new Author("Andrew", "Cleveland", "976-445-2232", addresses.get(2), "Author of childrens' books."));
+			add(new Author("Andrew", "Cleveland", "976-445-2232", addresses.get(2), "Author of childrens books."));
 			add(new Author("Sarah", "Connor", "123-422-2663", addresses.get(3), "Known for her clever style."));
 		}
 	};
@@ -76,6 +76,18 @@ public class TestData {
 		authorService.save(allAuthors);
 
 
+		addMembers();
+
+		MemberService memberService =  new MemberService();
+		memberService.save(members);
+
+		UserService userService =  new UserService();
+		userService.save(allUsers);
+
+
+	}
+
+	public static void addMembers(){
 		Member Member = new Member("1001", "Andy", "Rogers", "641-223-2211", addresses.get(4));
 		members.add(Member);
 
@@ -90,14 +102,6 @@ public class TestData {
 
 		Member = new Member("1005", "Sandra", "Thomas", "641-445-2123", addresses.get(0));          // author who happen to be a library member
 		members.add(Member);
-
-		MemberService memberService =  new MemberService();
-		memberService.save(members);
-
-		UserService userService =  new UserService();
-		userService.save(allUsers);
-
-
 	}
 
 

@@ -19,8 +19,8 @@ final public class UserService {
         repository.getDataAccess().save(user);
     }
 
-    public void save(List<User> books) {
-        repository.getDataAccess().save(books);
+    public void save(List<User> users) {
+        repository.getDataAccess().save(users);
     }
 
     public List<User> getAll() {

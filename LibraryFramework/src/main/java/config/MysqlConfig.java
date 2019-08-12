@@ -10,7 +10,7 @@ public class MysqlConfig implements  IConfig {
     private String dbUrl;
     private  String password;
     private  String username;
-    private  String scriptPath;
+
 
     public MysqlConfig(){
 

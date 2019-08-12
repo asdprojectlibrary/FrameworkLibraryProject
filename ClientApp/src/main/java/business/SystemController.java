@@ -1,8 +1,13 @@
 package business;
 
-import Service.*;
 import business.exceptions.CheckoutException;
 import model.*;
+import service.AuthorService;
+import service.BookService;
+import service.MemberService;
+import service.UserService;
+import service.CheckoutService;
+import config.DataLoader;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -68,16 +73,16 @@ public class SystemController implements ControllerInterface {
     }
 
     public void addCopies(String isbn, int numOfCopies) {
-       new BookService() .addCopies(isbn, numOfCopies);
+        new BookService().addCopies(isbn, numOfCopies);
     }
 
     @Override
     public List<CheckoutEntry> getCheckoutEntries(String memberId, String isbn) {
-        return new CheckoutService().getCheckoutEntries(memberId,isbn);
+        return new CheckoutService().getCheckoutEntries(memberId, isbn);
     }
 
     @Override
-    public List<CheckoutEntry> getCheckoutEntries(String memberId ) {
+    public List<CheckoutEntry> getCheckoutEntries(String memberId) {
         return new CheckoutService().getCheckoutEntries(memberId);
     }
 
@@ -91,7 +96,6 @@ public class SystemController implements ControllerInterface {
         return new CheckoutService().checkOut(id, isbn);
 
     }
-
 
 
     @Override
@@ -132,7 +136,7 @@ public class SystemController implements ControllerInterface {
 //        } else {
 //            throw new CheckoutException("Book Not Found!");
 //        }
-   //     return null;
+        //     return null;
 
     }
 

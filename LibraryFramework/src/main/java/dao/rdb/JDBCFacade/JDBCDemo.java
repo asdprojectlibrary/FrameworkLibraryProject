@@ -1,9 +1,13 @@
 package dao.rdb.JDBCFacade;
 
+import dao.DataLoaderImplDB;
+import exception.LoginException;
+import model.User;
 import service.BookService;
 import config.LibraryManager;
 import config.MysqlConfig;
 import dao.rdb.dataaccessadapter.*;
+import service.UserService;
 
 public class JDBCDemo {
 
@@ -22,21 +26,24 @@ public class JDBCDemo {
         config.setDbUrl("jdbc:mysql://localhost:3306/testDB");
         config.setPassword("root");
         config.setUsername("root");
-        config.setScriptPath("src/main/java/config/libraryDataBase.sql");
+        //config.setScriptPath("src/main/java/config/libraryDataBase.sql");
 
 
 
-        LibraryManager.getInstance().init(config, null);
+        //LibraryManager.getInstance().init(config, null);
+        LibraryManager.getInstance().init(config, new DataLoaderImplDB());
 
-        BookService bookService=new BookService();
+
+
+        /*BookService bookService=new BookService();
         bookService.addCopies("1234",4);
 
-        System.out.println("copies : "+bookService.getOne("1234").getNumCopies());
-       /* UserService userService=new UserService();
+        System.out.println("copies : "+bookService.getOne("1234").getNumCopies());*/
+        /*UserService userService=new UserService();
 
         try{
-            User usr=userService.Login("103","103");
-
+            User usr=userService.Login("103","111");
+            System.out.println(usr.getId());
             System.out.println("auto : "+usr.getAuthorization());
 
 
