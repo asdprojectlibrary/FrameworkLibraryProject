@@ -15,6 +15,8 @@ public interface DBTarget {
 
     public boolean save(Author author);
 
+    public boolean save(User user);
+
     public boolean saveCheckoutRecord(CheckoutRecord chkOutRecord);
 
     //==========If user equal null it does not exist=========
@@ -22,7 +24,7 @@ public interface DBTarget {
     public User searchUser(String userId);
     public List<User> searchAllUsers();
 
-    // public boolean saveUser(User user);
+
 
     public boolean updateLibraryMember(Member libraryMember);
 

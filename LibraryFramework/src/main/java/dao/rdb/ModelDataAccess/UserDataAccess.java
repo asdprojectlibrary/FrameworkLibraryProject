@@ -22,7 +22,7 @@ public class UserDataAccess extends RDBDataAccess<User> {
 
     @Override
     public void save(User usr) {
-        //rdb.save(usr);
+        rdb.save(usr);
     }
 
     @Override

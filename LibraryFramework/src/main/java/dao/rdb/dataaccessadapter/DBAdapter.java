@@ -2,7 +2,9 @@ package dao.rdb.dataaccessadapter;
 
 import config.LibraryManager;
 import config.MysqlConfig;
+import config.TableCreation;
 import dao.rdb.JDBCFacade.JDBCManager;
+import dao.rdb.command.AuthorSaveCommand;
 import dao.rdb.command.BookSaveCommand;
 import dao.rdb.command.Command;
 import dao.rdb.command.MemberSaveCommand;
@@ -140,15 +142,52 @@ public class DBAdapter implements DBTarget {
         return true;
     }
 
+
     @Override
     public boolean save(Author author) {
+        System.out.println("inside author");
 
-        String query = " insert into author(bio,idPerson) values("
-                + "'" + author.getBio() + "'" + "," + "'" + author.getId() + "'" + ")";
+        commandsExecuted = new Stack<>();
+        boolean success = false;
 
-        Integer authorId = jdbcManager.insertData(query);
+        currentCommand = new AuthorSaveCommand(author.getAddress());
+        if (currentCommand.execute()) {
+            commandsExecuted.push(currentCommand);
+            Person person = new Person(author.getFirstName(), author.getLastName(), author.getTelephone(), author.getAddress());
+            currentCommand = new AuthorSaveCommand(person);
+            if (currentCommand.execute()) {
+                commandsExecuted.push(currentCommand);
 
-        if (authorId == 0)
+                author.setId(person.getId());
+                currentCommand = new AuthorSaveCommand(author);
+                if (currentCommand.execute()) {
+                    success = true;
+                }
+            }
+        }
+
+        if (success == false) {
+            for (Command cmd : commandsExecuted) {
+                cmd.rollBack();
+            }
+        }
+
+        return success;
+    }
+
+    @Override
+    public boolean save(User user) {
+        String query = " insert into user(userId,password) values("
+                + "'" + user.getId() + "'" + "," + "'" + user.getPassword() + "'" + ")";
+
+        Integer userId = jdbcManager.insertData(query);
+
+
+        String query2 = " insert into permission(userId,permission) values("
+                + "'" + user.getId()+ "'" + "," + "'" + user.getAuthorization() + "'" + ")";
+        Integer authoId = jdbcManager.insertData(query2);
+
+        if (userId == 0)
             return false;
         else
             return true;
@@ -579,42 +618,13 @@ public class DBAdapter implements DBTarget {
 
     @Override
     public boolean createTables() {
+        TableCreation tbCreate=new TableCreation();
 
         MysqlConfig mysqlConfig = (MysqlConfig) LibraryManager.getInstance().getConfig();
 
         boolean testResult=true;
-        //jdbcManager.runScript("src/main/java/config/libraryDataBase.sql");
-        jdbcManager.runScript(mysqlConfig.getScriptPath()+"libraryDataBase.sql");
+        jdbcManager.runScript2(tbCreate.getScript());
 
-        /*String s= new String();
-        StringBuffer sb = new StringBuffer();
-        String dateBaseToUse="USE "+dataBaseName+";";
-        sb.append(dateBaseToUse);
-
-
-            try{
-                FileReader fr = new FileReader(new File("src/main/resources/libraryDataBase.sql"));
-
-                BufferedReader br = new BufferedReader(fr);
-                while((s = br.readLine()) != null){
-                    sb.append(s);
-                }
-                br.close();
-
-                String[] inst = sb.toString().split(";");
-
-                for(int i = 0; i<inst.length; i++){
-                    if(!inst[i].trim().equals("")){
-                        jdbcManager.updateData(inst[i]);
-                        System.out.println(">>"+inst[i]);
-                    }
-                }
-            }catch(Exception ex){System.out.println(ex.getMessage());}
-
-        }else{
-            testResult=false;
-            System.out.println("Cannot create Database");
-        }*/
 
         return testResult;
     }
@@ -642,20 +652,20 @@ public class DBAdapter implements DBTarget {
             fullName = (String) rs.get("FullName");
             pwd = (String) rs.get("password");
             String perm = (String) rs.get("permission");
-            if (perm.equals("librarian")) {
+            if (perm.equals("LIBRARIAN")) {
                 permissions = Auth.LIBRARIAN;
-            } else if (perm.equals("admin")) {
+            } else if (perm.equals("ADMIN")) {
                 permissions = Auth.ADMIN;
-            } else if (perm.equals("both")) {
+            } else if (perm.equals("BOTH")) {
                 permissions = Auth.BOTH;
             }
-        }
-
-        if (exists) {
             user = new User();
+            user.setId(userId);
             user.setPassword(pwd);
             user.setAuthorization(permissions);
         }
+
+
 
         return user;
     }
@@ -699,5 +709,21 @@ public class DBAdapter implements DBTarget {
 
 
         return listUser;
+    }
+
+    public boolean savePerson(Person person) {
+        String query = " insert into person(firstName,lastName,telephone,idAddress) values("
+                + "'" + person.getFirstName() + "'" + "," + "'" + person.getLastName() + "'" + ","
+                + "'" + person.getTelephone() + "'" + "," + "'" + person.getAddress().getId() + "'" + ")";
+
+        Integer idPerson = jdbcManager.insertData(query);
+
+        person.setId(idPerson.toString());
+        if (idPerson == 0)
+            return false;
+        else
+            return true;
+
+
     }
 }

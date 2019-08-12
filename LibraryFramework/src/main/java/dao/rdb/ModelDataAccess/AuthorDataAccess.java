@@ -17,7 +17,7 @@ public class AuthorDataAccess extends RDBDataAccess<Author> {
 
     @Override
     public void save(Author author) {
-
+        rdb.save(author);
     }
 
     @Override

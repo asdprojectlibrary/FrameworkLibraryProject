@@ -85,6 +85,9 @@ public class JDBCManager {
     }
 
     public Integer insertData(String sqlQuery){
+        System.out.println(sqlQuery);
+        sqlQuery.replace("'","''");
+        System.out.println(sqlQuery);
         boolean isExecuted=true;
         Integer result=0;
         try{
@@ -100,13 +103,14 @@ public class JDBCManager {
             stm.close();
         }catch(SQLException ex){
             isExecuted=false;
-            System.out.println(ex.getMessage());
+            System.out.println("Insert : "+ex.getMessage());
         }
         return result;
     }
 
 
     public boolean updateData(String sqlQuery)  {
+        sqlQuery.replace("'","''");
         boolean isExecuted=false;
         try{
             Statement stm = conn.createStatement();
@@ -121,6 +125,7 @@ public class JDBCManager {
     }
 
     public boolean deleteData(String sqlQuery) {
+        sqlQuery.replace("'","''");
         boolean isDeleted=true;
         try{
             Statement stm = conn.createStatement();
@@ -157,8 +162,39 @@ public class JDBCManager {
             sr.runScript(reader);
 
         } catch (Exception e) {
-            //System.err.println("Failed to Execute" + SQLScriptFilePath
-              //      + " The error is " + e.getMessage());
+            System.err.println("Failed to Execute" + SQLScriptFilePath
+                    + " The error is " + e.getMessage());
+        }
+
+        return true;
+    }
+
+    public boolean runScript2(String script){
+        try{
+            String s            = new String();
+            StringBuffer sb = new StringBuffer();
+            /*BufferedReader br = new BufferedReader(new FileReader(script));
+
+            while((s = br.readLine()) != null)
+            {
+                sb.append(s);
+            }
+            br.close();*/
+
+            sb.append(script);
+
+            String[] inst = sb.toString().split(";");
+            for(int i = 0; i<inst.length; i++){
+                if(!inst[i].trim().equals(""))                {
+                    Statement stm = conn.createStatement();
+                    stm.executeUpdate(inst[i]);
+                    stm.close();
+                    System.out.println(">>"+inst[i]);
+                }
+            }
+        } catch (Exception e) {
+        System.err.println("Failed to Execute" + script
+                + " The error is " + e.getMessage());
         }
 
         return true;

@@ -17,8 +17,8 @@ public class MemberDataAccess extends RDBDataAccess<Member> {
     }
 
     @Override
-    public void save(Member book) {
-        rdb.save(book);
+    public void save(Member member) {
+        rdb.save(member);
     }
 
     @Override

@@ -6,18 +6,26 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9549138-fab5-418b-8f92-3b1d9b9ec6e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ClientApp/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClientApp/src/main/java/business/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/src/main/java/business/SystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClientApp/src/main/java/dataaccess/DataLoaderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/src/main/java/dataaccess/DataLoaderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClientApp/src/main/resources/model.Book" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/src/main/resources/model.Book" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClientApp/src/main/resources/model.Member" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/src/main/resources/model.Member" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClientApp/src/main/resources/model.User" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/src/main/resources/model.User" afterDir="false" />
+    <list default="true" id="d9549138-fab5-418b-8f92-3b1d9b9ec6e0" name="Default Changelist" comment="New">
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/TableCreation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DataLoaderImplDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DataLoaderImplFlatFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/rdb/command/AuthorSaveCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/DataLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/LibraryManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/config/MysqlConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/MysqlConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/TestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/TestData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/AuthorDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/AuthorDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/MemberDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/MemberDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/UserDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/UserDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/rdb/dataaccessadapter/DBAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/rdb/dataaccessadapter/DBAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/rdb/dataaccessadapter/DBTarget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/rdb/dataaccessadapter/DBTarget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/TestData$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/TestData$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/TestData$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/TestData$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/TestData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/TestData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dao/flatfile/FlatFileStorage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/flatfile/FlatFileStorage.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -34,10 +42,97 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCManager.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/DataLoaderImplDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-476">
-              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+            <state relative-caret-position="306">
+              <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/TestData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/MemberDataAccess.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+              <folding>
+                <element signature="e#259#260#0" expanded="true" />
+                <element signature="e#310#311#0" expanded="true" />
+                <element signature="e#363#364#0" expanded="true" />
+                <element signature="e#395#396#0" expanded="true" />
+                <element signature="e#442#443#0" expanded="true" />
+                <element signature="e#497#498#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/config/MysqlConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/DataLoaderImplFlatFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/config/DataLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/config/TableCreation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="106" column="18" selection-start-line="106" selection-start-column="18" selection-end-line="106" selection-end-column="18" />
+              <folding>
+                <element signature="e#5881#5882#0" expanded="true" />
+                <element signature="e#5909#5910#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/dataaccessadapter/DBAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-797">
+              <caret line="658" column="40" selection-start-line="658" selection-start-column="40" selection-end-line="658" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,116 +143,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="136">
+              <caret line="33" column="63" selection-start-line="33" selection-start-column="63" selection-end-line="33" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/service/AuthorService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#209#210#0" expanded="true" />
-                <element signature="e#272#273#0" expanded="true" />
-                <element signature="e#308#309#0" expanded="true" />
-                <element signature="e#366#367#0" expanded="true" />
-                <element signature="e#412#413#0" expanded="true" />
-                <element signature="e#468#469#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/config/DataLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/config/LibraryManager.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/service/BookService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
-                <element signature="e#373#374#0" expanded="true" />
-                <element signature="e#415#416#0" expanded="true" />
-                <element signature="e#469#470#0" expanded="true" />
-                <element signature="e#503#504#0" expanded="true" />
-                <element signature="e#561#562#0" expanded="true" />
-                <element signature="e#600#601#0" expanded="true" />
-                <element signature="e#659#660#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/service/CheckoutService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1734">
-              <caret line="110" selection-start-line="110" selection-end-line="110" />
+            <state relative-caret-position="153">
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/config/MysqlConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/AuthorDataAccess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#192#193#0" expanded="true" />
-                <element signature="e#227#228#0" expanded="true" />
-                <element signature="e#276#277#0" expanded="true" />
-                <element signature="e#321#322#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/command/MemberSaveCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1751">
-              <caret line="111" column="36" selection-start-line="111" selection-start-column="36" selection-end-line="111" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -268,23 +270,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
               <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
@@ -327,7 +319,36 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="flatfile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
               <item name="rdb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="rdb" type="462c0819:PsiDirectoryNode" />
+              <item name="command" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="rdb" type="462c0819:PsiDirectoryNode" />
+              <item name="dataaccessadapter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
@@ -341,6 +362,39 @@
             </path>
             <path>
               <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="rdb" type="462c0819:PsiDirectoryNode" />
+              <item name="ModelDataAccess" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryFramework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryFramework" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -348,7 +402,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,8 +418,9 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Emmanuel Cadet\IdeaProjects\FinalFrameworkLibrary\LibraryFramework\src\main\java\config\script" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="dao.rdb.ModelDataAccess" />
+      <recent name="model" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -381,9 +435,8 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dao.rdb.ModelDataAccess" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="dao.rdb.ModelDataAccess" />
-      <recent name="model" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Emmanuel Cadet\IdeaProjects\FinalFrameworkLibrary\LibraryFramework\src\main\java\config\script" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -593,7 +646,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151647000" />
+    <option name="totallyTimeSpent" value="152075000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -605,10 +658,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
+    <frame x="-6" y="-6" width="1292" height="702" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6062718" visible="true" weight="0.25838926" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6062718" visible="true" weight="0.25323623" />
       <window_info id="Structure" order="1" sideWeight="0.39372823" side_tool="true" weight="0.22330096" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -621,7 +673,7 @@
       <window_info anchor="bottom" id="Database Changes" order="2" />
       <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49932885" weight="0.34217876" />
       <window_info anchor="bottom" id="Version Control" order="4" sideWeight="0.49932885" weight="0.32752612" />
-      <window_info anchor="bottom" id="Messages" order="5" weight="0.32402235" />
+      <window_info anchor="bottom" id="Messages" order="5" weight="0.32229966" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32752612" />
       <window_info anchor="bottom" id="TODO" order="8" sideWeight="0.49932885" weight="0.32960895" />
@@ -809,12 +861,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/TestData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="97" column="35" lean-forward="true" selection-start-line="96" selection-start-column="34" selection-end-line="97" selection-end-column="35" />
+        <state relative-caret-position="84">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3729#3730#0" expanded="true" />
-            <element signature="e#3746#3747#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -944,11 +994,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/ModelDataAccess/MemberDataAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        <state relative-caret-position="306">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#259#260#0" expanded="true" />
             <element signature="e#310#311#0" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
             <element signature="e#442#443#0" expanded="true" />
             <element signature="e#497#498#0" expanded="true" />
           </folding>
@@ -1039,8 +1091,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/dataaccessadapter/DBAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1768">
-          <caret line="115" column="5" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
+        <state relative-caret-position="-797">
+          <caret line="658" column="40" selection-start-line="658" selection-start-column="40" selection-end-line="658" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1138,28 +1190,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/config/MysqlConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        <state relative-caret-position="136">
+          <caret line="33" column="63" selection-start-line="33" selection-start-column="63" selection-end-line="33" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1168,8 +1200,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/config/DataLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+        <state relative-caret-position="170">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1177,6 +1209,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/config/MysqlConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/rdb/JDBCFacade/JDBCManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1199,7 +1251,6 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1258,7 +1309,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>com.mysql.jdbc</last-edited>
+          <last-edited>Maven: org.projectlombok:lombok:1.16.18</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
