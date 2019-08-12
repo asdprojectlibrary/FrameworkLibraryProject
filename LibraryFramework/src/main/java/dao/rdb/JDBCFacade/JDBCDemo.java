@@ -2,11 +2,13 @@ package dao.rdb.JDBCFacade;
 
 import dao.DataLoaderImplDB;
 import exception.LoginException;
+import model.Member;
 import model.User;
 import service.BookService;
 import config.LibraryManager;
 import config.MysqlConfig;
 import dao.rdb.dataaccessadapter.*;
+import service.MemberService;
 import service.UserService;
 
 public class JDBCDemo {
@@ -23,7 +25,7 @@ public class JDBCDemo {
         MysqlConfig config = new MysqlConfig();
 
         //config new
-        config.setDbUrl("jdbc:mysql://localhost:3306/testDB");
+        config.setDbUrl("jdbc:mysql://localhost:3306/librarydb");
         config.setPassword("root");
         config.setUsername("root");
         //config.setScriptPath("src/main/java/config/libraryDataBase.sql");
@@ -32,6 +34,10 @@ public class JDBCDemo {
 
         //LibraryManager.getInstance().init(config, null);
         LibraryManager.getInstance().init(config, new DataLoaderImplDB());
+
+        MemberService memberService=new MemberService();
+        Member mem=memberService.getOne("1");
+        System.out.println(mem.getFirstName());
 
 
 

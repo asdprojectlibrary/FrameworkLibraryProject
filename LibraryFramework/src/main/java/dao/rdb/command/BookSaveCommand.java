@@ -63,7 +63,7 @@ public class BookSaveCommand implements Command {
     public boolean saveBook(){
         String title=book.getTitle().replace("'","''");
         String query=" insert into book(isbn,title,maxCheckoutLength) values("
-                +"'"+book.getIsbn()+"'"+","+"'"+book.getTitle()+"'"+","
+                +"'"+book.getIsbn()+"'"+","+"'"+book.getTitle().replace("'","''")+"'"+","
                 +"'"+book.getMaxCheckoutLength()+"'"+")";
 
         Integer bookId=jdbcManager.insertData(query);

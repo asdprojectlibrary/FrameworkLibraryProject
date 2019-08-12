@@ -252,16 +252,21 @@ public class DBAdapter implements DBTarget {
 
         String query = "select * from libraryMember as li,person as p,address as ad " +
                 " where li.idPerson=p.idPerson and p.idAddress=ad.idAddress and memberId=" + "'" + memberId + "'";
+        System.out.println(query);
+        Member libMemb =null;
+        List<HashMap<String, Object>> listMemb = jdbcManager.selection(query);
+
+        for (HashMap<String, Object> rs : listMemb) {
+            Address add = new Address((String) rs.get("street"), (String) rs.get("city"), (String) rs.get("state"), (String) rs.get("zipCode"));
+            String idMem = rs.get("memberId").toString();
+            String fname = (String) rs.get("firstName");
+            String lName = (String) rs.get("lastName");
+            String phone = (String) rs.get("telephone");
+            libMemb=new Member(idMem, fname, lName, phone, add);
+        }
 
 
-        HashMap<String, Object> rs = jdbcManager.selection(query).get(0);
 
-        Address add = new Address((String) rs.get("street"), (String) rs.get("city"), (String) rs.get("state"), (String) rs.get("zipCode"));
-        String idMem = rs.get("memberId").toString();
-        String fname = (String) rs.get("firstName");
-        String lName = (String) rs.get("lastName");
-        String phone = (String) rs.get("telephone");
-        Member libMemb = new Member(idMem, fname, lName, phone, add);
         return libMemb;
     }
 

@@ -35,7 +35,7 @@ final public class BookService {
         Book book = getOne(isbn);
         int lastNumber=book.getNumCopies();
 
-        for (int i = 0; i < num; i++) {
+        for (int i = 1; i <=num; i++) {
 
             BookCopy copy = new BookCopy();
             copy.setBook(book);
